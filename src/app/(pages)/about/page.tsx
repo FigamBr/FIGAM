@@ -1,3 +1,4 @@
+import DecorationPhrase from "@/components/DecorationPhrase";
 import { createClient } from "@/prismicio";
 import { Button } from "@nextui-org/react";
 import { asHTML } from "@prismicio/client";
@@ -11,6 +12,9 @@ const page = async () => {
 
   return (
     <div className="flex flex-col w-full gap-8">
+      <DecorationPhrase
+        phrases={["Sobre nós.", "Sobre nossa missão", "Sobre nossa História"]}
+      />
       <article className="flex flex-col">
         <h1 className="text-h1">{about.data.title1[0]?.text}</h1>
         <p className="text-paragraph-base">{about.data.text1[0]?.text}</p>
