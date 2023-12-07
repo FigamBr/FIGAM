@@ -21,7 +21,8 @@ const page = async () => {
               src={about.data.image1.url}
               fill
               objectFit="cover"
-              alt="figam"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              alt={about.data.image1.alt}
             />
           </figure>
         </section>
@@ -30,14 +31,15 @@ const page = async () => {
       <article className="flex flex-col">
         <h1 className="text-h1">{about.data.title2[0]?.text}</h1>
         <p className="text-paragraph-base">{about.data.text2[0]?.text}</p>
-        
+
         <section className="pt-5 flex w-full h-56 gap-1">
           <figure className="relative w-1/2 h-full">
             <Image
               src={about.data.image2.url}
               fill
               objectFit="cover"
-              alt="figam"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              alt={about.data.image1.alt}
             />
           </figure>
 
@@ -46,8 +48,9 @@ const page = async () => {
               <Image
                 src={about.data.image3.url}
                 fill
-                objectFit="contain"
-                alt="figam"
+                objectFit="cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                alt={about.data.image1.alt}
               />
             </figure>
 
@@ -55,8 +58,9 @@ const page = async () => {
               <Image
                 src={about.data.image4.url}
                 fill
-                objectFit="contain"
-                alt="figam"
+                objectFit="cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                alt={about.data.image1.alt}
               />
             </figure>
           </div>
