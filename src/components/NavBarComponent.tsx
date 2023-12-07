@@ -14,16 +14,10 @@ import {
 
 const NavBar = () => {
   const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+    "Inicio",
+    "Sobre",
+    "Projetos",
+    "Contato",
   ];
 
   return (
@@ -76,13 +70,7 @@ const NavBar = () => {
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               className="w-full"
-              color={
-                index === 2
-                  ? "warning"
-                  : index === menuItems.length - 1
-                    ? "danger"
-                    : "foreground"
-              }
+              color="foreground"
               href="#"
               size="lg"
             >
