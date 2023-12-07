@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .text-h1 {
+    @apply font-serif text-black text-xl leading-normal;
+  }
+  .text-paragraph-base {
+    @apply font-light text-black text-base;
+  }
+}
