@@ -4,6 +4,76 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Item in *About → phrases1*
+ */
+export interface AboutDocumentDataPhrases1Item {
+  /**
+   * text1 field in *About → phrases1*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.phrases1[].text1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text1: prismic.RichTextField;
+
+  /**
+   * text2 field in *About → phrases1*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.phrases1[].text2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text2: prismic.RichTextField;
+
+  /**
+   * text3 field in *About → phrases1*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.phrases1[].text3
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text3: prismic.RichTextField;
+}
+
+/**
+ * Item in *About → phrases2*
+ */
+export interface AboutDocumentDataPhrases2Item {
+  /**
+   * text1 field in *About → phrases2*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.phrases2[].text1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text1: prismic.RichTextField;
+
+  /**
+   * text2 field in *About → phrases2*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.phrases2[].text2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text2: prismic.RichTextField;
+
+  /**
+   * text3 field in *About → phrases2*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.phrases2[].text3
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text3: prismic.RichTextField;
+}
+
 type AboutDocumentDataSlicesSlice = ImageSlideSlice | About1Slice;
 
 /**
@@ -119,6 +189,28 @@ interface AboutDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   text3: prismic.RichTextField;
+
+  /**
+   * phrases1 field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.phrases1[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  phrases1: prismic.GroupField<Simplify<AboutDocumentDataPhrases1Item>>;
+
+  /**
+   * phrases2 field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.phrases2[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  phrases2: prismic.GroupField<Simplify<AboutDocumentDataPhrases2Item>>;
 
   /**
    * Slice Zone field in *About*
@@ -319,6 +411,8 @@ declare module "@prismicio/client" {
     export type {
       AboutDocument,
       AboutDocumentData,
+      AboutDocumentDataPhrases1Item,
+      AboutDocumentDataPhrases2Item,
       AboutDocumentDataSlicesSlice,
       SlideimageDocument,
       SlideimageDocumentData,

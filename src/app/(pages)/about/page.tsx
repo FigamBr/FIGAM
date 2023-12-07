@@ -10,13 +10,12 @@ import React from "react";
 const page = async () => {
   const prismic = createClient();
   const about: any = await prismic.getByUID("about", "sobre-a-figam");
+
   const slices = about.data.slices[0];
 
   return (
     <div className="flex flex-col w-full gap-6">
-      <DecorationPhrase
-        phrases={["Sobre nós.", "Sobre nossa missão", "Sobre nossa História"]}
-      />
+      <DecorationPhrase phrases={about.data.phrases1[0]} />
 
       <article className="flex flex-col">
         <HeaderAndText
@@ -76,6 +75,8 @@ const page = async () => {
           text={about.data.text3[0]?.text}
         />
       </article>
+
+      <DecorationPhrase phrases={about.data.phrases2[0]} />
     </div>
   );
 };
