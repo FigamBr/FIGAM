@@ -1,0 +1,25 @@
+{
+  "id": "about",
+  "label": "about",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "uid",
+          "placeholder": ""
+        }
+      },
+      "about_text": {
+        "type": "Text",
+        "config": {
+          "label": "about_text",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}
