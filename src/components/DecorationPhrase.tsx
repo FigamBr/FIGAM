@@ -1,5 +1,5 @@
 import React from "react";
-import { MdCircle } from "react-icons/md";
+import Circles from "./Circles";
 
 type Props = {
   phrases: string[];
@@ -17,11 +17,7 @@ const DecorationPhrase = ({ phrases }: Props) => {
             </p>
           ))}
         </div>
-        <div className="absolute w-[50px] right-8 top-36 flex z-20 flex-row gap-1">
-          <MdCircle className="text-2xl text-primary" />
-          <MdCircle className="text-2xl text-secondary" />
-          <MdCircle className="text-2xl text-tertiary" />
-        </div>
+        <Circles />
       </div>
     </div>
   );
