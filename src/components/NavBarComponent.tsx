@@ -28,13 +28,13 @@ const NavBar = () => {
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
-          <p className="font-bold text-inherit">FIGAM</p>
+          <p className="font-bold text-inherit text-primary">FIGAM</p>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="start">
         <NavbarBrand>
-          <p className="font-bold text-inherit">Figam</p>
+          <p className="font-bold text-inherit text-primary">Figam</p>
         </NavbarBrand>
       </NavbarContent>
 
@@ -45,7 +45,7 @@ const NavBar = () => {
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="#" aria-current="page" color="warning">
+          <Link href="#" aria-current="page" className="text-primary">
             Sobre
           </Link>
         </NavbarItem>
