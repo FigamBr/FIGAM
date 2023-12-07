@@ -4,24 +4,167 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type AboutDocumentDataSlicesSlice = ImageSlideSlice | About1Slice;
+
 /**
- * Content for about documents
+ * Content for About documents
  */
 interface AboutDocumentData {
   /**
-   * about_text field in *about*
+   * Title1 field in *About*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.title1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title1: prismic.RichTextField;
+
+  /**
+   * Text1 field in *About*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.text1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text1: prismic.RichTextField;
+
+  /**
+   * Image1 field in *About*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.image1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image1: prismic.ImageField<never>;
+
+  /**
+   * Title2 field in *About*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.title2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title2: prismic.RichTextField;
+
+  /**
+   * Text2 field in *About*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.text2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text2: prismic.RichTextField;
+
+  /**
+   * Image2 field in *About*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.image2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image2: prismic.ImageField<never>;
+
+  /**
+   * Image3 field in *About*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.image3
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image3: prismic.ImageField<never>;
+
+  /**
+   * Image4 field in *About*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.image4
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image4: prismic.ImageField<never>;
+
+  /**
+   * Title3 field in *About*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.title3
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title3: prismic.RichTextField;
+
+  /**
+   * Text3 field in *About*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.text3
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text3: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *About*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AboutDocumentDataSlicesSlice> /**
+   * Meta Description field in *About*
    *
    * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: about.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *About*
+   *
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: about.about_text
-   * - **Tab**: Main
+   * - **API ID Path**: about.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: about.meta_title
+   * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  about_text: prismic.KeyTextField;
+  meta_title: prismic.KeyTextField;
 }
 
 /**
- * about document from Prismic
+ * About document from Prismic
  *
  * - **API ID**: `about`
  * - **Repeatable**: `false`
@@ -32,72 +175,137 @@ interface AboutDocumentData {
 export type AboutDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<AboutDocumentData>, "about", Lang>;
 
-type HomepageDocumentDataSlicesSlice = never;
+/**
+ * Item in *slideImage → title*
+ */
+export interface SlideimageDocumentDataTitleItem {}
 
 /**
- * Content for homePage documents
+ * Content for slideImage documents
  */
-interface HomepageDocumentData {
+interface SlideimageDocumentData {
   /**
-   * Slice Zone field in *homePage*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<HomepageDocumentDataSlicesSlice> /**
-   * Meta Description field in *homePage*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: homepage.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *homePage*
+   * image field in *slideImage*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.meta_image
-   * - **Tab**: SEO & Metadata
+   * - **API ID Path**: slideimage.image
+   * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  meta_image: prismic.ImageField<never>;
+  image: prismic.ImageField<never>;
 
   /**
-   * Meta Title field in *homePage*
+   * title field in *slideImage*
    *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: homepage.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slideimage.title[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
    */
-  meta_title: prismic.KeyTextField;
+  title: prismic.GroupField<Simplify<SlideimageDocumentDataTitleItem>>;
 }
 
 /**
- * homePage document from Prismic
+ * slideImage document from Prismic
  *
- * - **API ID**: `homepage`
+ * - **API ID**: `slideimage`
  * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type HomepageDocument<Lang extends string = string> =
+export type SlideimageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<
-    Simplify<HomepageDocumentData>,
-    "homepage",
+    Simplify<SlideimageDocumentData>,
+    "slideimage",
     Lang
   >;
 
-export type AllDocumentTypes = AboutDocument | HomepageDocument;
+export type AllDocumentTypes = AboutDocument | SlideimageDocument;
+
+/**
+ * Default variation for About1 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type About1SliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *About1*
+ */
+type About1SliceVariation = About1SliceDefault;
+
+/**
+ * About1 Shared Slice
+ *
+ * - **API ID**: `about1`
+ * - **Description**: About1
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type About1Slice = prismic.SharedSlice<"about1", About1SliceVariation>;
+
+/**
+ * Primary content in *ImageSlide → Items*
+ */
+export interface ImageSlideSliceDefaultItem {
+  /**
+   * image field in *ImageSlide → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_slide.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * title field in *ImageSlide → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_slide.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ImageSlide Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSlideSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<ImageSlideSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *ImageSlide*
+ */
+type ImageSlideSliceVariation = ImageSlideSliceDefault;
+
+/**
+ * ImageSlide Shared Slice
+ *
+ * - **API ID**: `image_slide`
+ * - **Description**: ImageSlide
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSlideSlice = prismic.SharedSlice<
+  "image_slide",
+  ImageSlideSliceVariation
+>;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -111,10 +319,18 @@ declare module "@prismicio/client" {
     export type {
       AboutDocument,
       AboutDocumentData,
-      HomepageDocument,
-      HomepageDocumentData,
-      HomepageDocumentDataSlicesSlice,
+      AboutDocumentDataSlicesSlice,
+      SlideimageDocument,
+      SlideimageDocumentData,
+      SlideimageDocumentDataTitleItem,
       AllDocumentTypes,
+      About1Slice,
+      About1SliceVariation,
+      About1SliceDefault,
+      ImageSlideSlice,
+      ImageSlideSliceDefaultItem,
+      ImageSlideSliceVariation,
+      ImageSlideSliceDefault,
     };
   }
 }
