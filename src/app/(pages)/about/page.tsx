@@ -15,32 +15,46 @@ const page = async () => {
 
   return (
     <div className="flex flex-col w-full gap-6">
-      <DecorationPhrase phrases={about.data.phrases1[0]} />
-
-      <article className="flex flex-col">
-        <HeaderAndText
-          title={about.data.title1[0]?.text}
-          text={about.data.text1[0]?.text}
+      <div className="flex md:h-[550px] lg:h-[400px] flex-col md:flex md:flex-row md:items-center">
+        <DecorationPhrase
+          minHeight={["min-h-[400px]", "min-h-[500px]"]}
+          lineHeight="h-20"
+          phrases={about.data.phrases1[0]}
+          flexRow="flex-row-reverse"
         />
 
-        <section className="pt-5 flex w-full h-56">
-          <CustomImage
-            src={about.data.image1.url}
-            alt={about.data.image1.alt}
-          />
-        </section>
-      </article>
+        <article className="flex flex-col md:w-9/12">
+          <div className="flex flex-col gap-2">
+            <h1 className="text-h1 md:text-[56px]">
+              {about.data.title1[0]?.text}
+            </h1>
+            <p className="text-paragraph-base text-justify">
+              {about.data.text1[0]?.text}
+            </p>
+          </div>
+        </article>
+      </div>
 
-      <article className="flex flex-col">
+      <section className="pt-5 flex w-full h-56 md:h-[400px]">
+        <CustomImage src={about.data.image1.url} alt={about.data.image1.alt} />
+      </section>
+
+      <article className="flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-center">
         <HeaderAndText
+          width="w-8/12"
           title={about.data.title2[0]?.text}
           text={about.data.text2[0]?.text}
         />
-        <section className="pt-5 flex w-full h-56 gap-1">
-          <CustomImage
-            src={about.data.image2.url}
-            alt={about.data.image2.alt}
-          />
+        <section
+          className="pt-5 flex w-full lg:w-6/12 lg:flex-row 
+          h-56 lg:min-h-[500px] gap-1 items-center justify-center"
+        >
+          <div className="flex flex-col w-1/2 h-full lg:h-[300px] gap-1">
+            <CustomImage
+              src={about.data.image2.url}
+              alt={about.data.image2.alt}
+            />
+          </div>
 
           <div className="flex flex-col w-1/2 h-full gap-1">
             <CustomImage
@@ -69,14 +83,28 @@ const page = async () => {
           ))}
       </ScrollOfImage>
 
-      <article className="flex flex-col">
-        <HeaderAndText
-          title={about.data.title3[0]?.text}
-          text={about.data.text3[0]?.text}
-        />
-      </article>
+      <Circles center />
 
-      <DecorationPhrase phrases={about.data.phrases2[0]} />
+      <div
+        className="flex flex-col md:min-h-[300px] lg:min-h-[400px]
+       lg:flex-row gap-5 items-center justify-center"
+      >
+        <article className="flex flex-col lg:w-9/12">
+          <HeaderAndText
+            width="w-12/12"
+            title={about.data.title3[0]?.text}
+            text={about.data.text3[0]?.text}
+          />
+        </article>
+
+        <DecorationPhrase
+          phrases={about.data.phrases2[0]}
+          minHeight={["min-h-fit", "min-h-[500px]"]}
+          lineHeight="h-40"
+          flexRow="flex-row"
+          cicleEnd
+        />
+      </div>
     </div>
   );
 };

@@ -13,9 +13,9 @@ const CustomImageScroll: React.FC<CustomImageScrollProps> = ({
   alt,
 }) => {
   return (
-    <div className="relative w-40  ">
-      <div className=" flex flex-col w-40 h-44 gap-1">
-        <figure className="relative w-full h-full">
+    <div className="relative w-40 lg:w-[300px] p-4 hover:size transition-transform duration-300 ease-in-out">
+      <div className=" flex flex-col w-40 h-44 lg:w-[300px] lg:h-[330px] gap-1">
+        <figure className="relative w-full h-full lg:mb-2">
           <Image
             src={src}
             fill
@@ -25,7 +25,7 @@ const CustomImageScroll: React.FC<CustomImageScrollProps> = ({
           />
         </figure>
       </div>
-      <p className="text-xs mb-1  font-light">{title}</p>
+      <p className="text-xs mb-1 lg:text-base font-light">{title}</p>
     </div>
   );
 };

@@ -3,12 +3,13 @@ import { MdCircle } from "react-icons/md";
 
 interface Props {
   center?: boolean;
+  end?: boolean;
 }
 
-const Circles = ({ center }: Props) => {
+const Circles = ({ center, end }: Props) => {
   const containerClass = center
     ? "self-center right-8 top-36"
-    : "relative left-14 top-8";
+    : `relative md:${end ? "self-end" : "self-start"} self-end bottom-5 md:top-0 md:left-0`;
 
   return (
     <div className={`w-[60px] flex z-20 flex-row gap-1 ${containerClass}`}>

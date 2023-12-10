@@ -20,6 +20,13 @@ const NavBar = () => {
     "Contato",
   ];
 
+  const linkMenu = [
+    "/",
+    "/about",
+    "/projects",
+    "/contact",
+  ];
+
   return (
     <Navbar disableAnimation isBordered>
       <NavbarContent className="sm:hidden" justify="start">
@@ -71,7 +78,7 @@ const NavBar = () => {
             <Link
               className="w-full"
               color="foreground"
-              href="#"
+              href={linkMenu[index]}
               size="lg"
             >
               {item}
