@@ -40,17 +40,17 @@ const NavBar = () => {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/">
             Inicio
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="#" aria-current="page" className="text-primary">
+          <Link href="/about" aria-current="page" className="text-primary">
             Sobre
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/projects">
             Projetos
           </Link>
         </NavbarItem>
@@ -59,7 +59,7 @@ const NavBar = () => {
       
       <NavbarContent justify="end">
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/contact">
             Contato
           </Link>
         </NavbarItem>
