@@ -8,7 +8,7 @@ interface CustomImageProps {
 
 const CustomImage: React.FC<CustomImageProps> = ({ src, alt }) => {
   return (
-    <figure className="relative w-full h-full hover:size transition-transform duration-300 ease-in-out">
+    <figure className="relative w-full h-full ">
       <Image src={src} fill objectFit="cover" alt={alt} />
     </figure>
   );
