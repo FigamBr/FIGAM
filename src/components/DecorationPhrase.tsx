@@ -9,7 +9,11 @@ type PhrasesData = {
 
 type FlexRow = "flex-row" | "flex-row-reverse";
 type LineHeight = "h-20" | "h-40";
-type MinHeight = "min-h-[500px]" | "min-h-[400px]" | "min-h-fit";
+type MinHeight =
+  | "min-h-[500px]"
+  | "min-h-[400px]"
+  | "min-h-fit"
+  | "min-h-[300px]";
 
 type Props = {
   phrases: PhrasesData;

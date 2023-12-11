@@ -15,9 +15,9 @@ const page = async () => {
 
   return (
     <div className="flex flex-col w-full gap-6">
-      <div className="flex md:min-h-[500px] lg:h-400 flex-col md:flex md:flex-row md:items-center">
+      <div className="flex md:min-h-[400x] lg:h-[350px] flex-col md:flex md:flex-row md:items-center">
         <DecorationPhrase
-          minHeight={["min-h-[400px]", "min-h-[500px]"]}
+          minHeight={["min-h-[300px]", "min-h-[300px]"]}
           lineHeight="h-20"
           phrases={about.data.phrases1[0]}
           flexRow="flex-row-reverse"
@@ -35,7 +35,7 @@ const page = async () => {
         </article>
       </div>
 
-      <section className="pt-5 flex w-full h-56 md:h-[400px]">
+      <section className="flex w-full h-56 md:h-[400px]">
         <CustomImage src={about.data.image1.url} alt={about.data.image1.alt} />
       </section>
 
