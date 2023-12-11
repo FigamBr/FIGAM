@@ -13,7 +13,7 @@ const CustomImageScroll: React.FC<CustomImageScrollProps> = ({
   alt,
 }) => {
   return (
-    <div className="relative w-40 lg:w-[300px] p-4 hover:size hover:z-10 transition-transform duration-300 ease-in-out">
+    <div className="relative w-40 lg:w-[300px] p-4 hover:size transition-transform duration-300 ease-in-out">
       <div className=" flex flex-col w-40 h-44 lg:w-[300px] lg:h-[330px] gap-1">
         <figure className="relative w-full h-full lg:mb-2">
           <Image
