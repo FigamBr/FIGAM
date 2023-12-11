@@ -9,13 +9,7 @@ interface CustomImageProps {
 const CustomImage: React.FC<CustomImageProps> = ({ src, alt }) => {
   return (
     <figure className="relative w-full h-full">
-      <Image
-        src={src}
-        fill
-        objectFit="cover"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        alt={alt}
-      />
+      <Image src={src} fill objectFit="cover" alt={alt} />
     </figure>
   );
 };

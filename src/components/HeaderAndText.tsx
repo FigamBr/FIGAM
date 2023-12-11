@@ -1,6 +1,6 @@
 import React from "react";
 
-type Widht = "w-6/12" | "w-8/12" | "w-10/12" | "w-12/12";
+type Widht = "w-6/12" | "w-8/12" | "w-10/12" | "w-12/12" | "w-7/12";
 interface Props {
   title: string;
   text: string;

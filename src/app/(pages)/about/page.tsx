@@ -41,12 +41,12 @@ const page = async () => {
 
       <article className="flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-center">
         <HeaderAndText
-          width="w-8/12"
+          width="w-6/12"
           title={about.data.title2[0]?.text}
           text={about.data.text2[0]?.text}
         />
         <section
-          className="pt-5 flex w-full lg:w-6/12 lg:flex-row 
+          className="pt-5 flex w-full lg:w-6/12 lg:flex-row
           h-56 lg:min-h-[500px] gap-1 items-center justify-center"
         >
           <div className="flex flex-col w-1/2 h-full lg:h-[300px] gap-1">
@@ -86,7 +86,7 @@ const page = async () => {
       <Circles center />
 
       <div
-        className="flex flex-col md:min-h-[300px] lg:min-h-[400px]
+        className="flex w-full flex-col md:min-h-[300px] lg:min-h-[300px]
        lg:flex-row gap-5 items-center justify-center"
       >
         <article className="flex flex-col lg:w-9/12">
@@ -103,6 +103,7 @@ const page = async () => {
           lineHeight="h-40"
           flexRow="flex-row"
           cicleEnd
+          bottom
         />
       </div>
     </div>

@@ -17,6 +17,7 @@ type Props = {
   lineHeight: LineHeight;
   minHeight: MinHeight[];
   cicleEnd?: boolean;
+  bottom?: boolean;
 };
 
 const DecorationPhrase = ({
@@ -24,7 +25,8 @@ const DecorationPhrase = ({
   flexRow,
   lineHeight,
   minHeight,
-  cicleEnd
+  cicleEnd = false,
+  bottom,
 }: Props) => {
   const { text1, text2, text3 } = phrases;
 
@@ -33,7 +35,9 @@ const DecorationPhrase = ({
       className={`flex flex-col min-h-full justify-between items-center md:w-3/12 `}
     >
       <div
-        className={`w-full md:${minHeight[0]} lg:${minHeight[0]} flex flex-row md:flex-row-reverse justify-center`}
+        className={`w-full md:${bottom ? "" : minHeight[1]} lg:${
+          minHeight[0]
+        } flex flex-row md:flex-row-reverse justify-center`}
       >
         <div
           className={`flex flex-row md:${flexRow} self-center items-center gap-5`}
@@ -53,7 +57,7 @@ const DecorationPhrase = ({
           </div>
         </div>
       </div>
-      <Circles end={cicleEnd}/>
+      <Circles end={cicleEnd} />
     </div>
   );
 };
