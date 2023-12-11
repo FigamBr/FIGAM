@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import {
   Navbar,
@@ -13,22 +12,12 @@ import {
 } from "@nextui-org/react";
 
 const NavBar = () => {
-  const menuItems = [
-    "Inicio",
-    "Sobre",
-    "Projetos",
-    "Contato",
-  ];
+  const menuItems = ["Inicio", "Sobre", "Projetos", "Contato"];
 
-  const linkMenu = [
-    "/",
-    "/about",
-    "/projects",
-    "/contact",
-  ];
+  const linkMenu = ["/", "/about", "/projects", "/contact"];
 
   return (
-    <Navbar disableAnimation isBordered>
+    <Navbar isBordered>
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle />
       </NavbarContent>
@@ -61,9 +50,8 @@ const NavBar = () => {
             Projetos
           </Link>
         </NavbarItem>
-        
       </NavbarContent>
-      
+
       <NavbarContent justify="end">
         <NavbarItem>
           <Link color="foreground" href="/contact">
