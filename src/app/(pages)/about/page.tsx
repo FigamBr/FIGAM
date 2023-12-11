@@ -15,7 +15,7 @@ const page = async () => {
 
   return (
     <div className="flex flex-col w-full gap-6">
-      <div className="flex md:min-h-500 lg:h-400 flex-col md:flex md:flex-row md:items-center">
+      <div className="flex md:min-h-[500px] lg:h-400 flex-col md:flex md:flex-row md:items-center">
         <DecorationPhrase
           minHeight={["min-h-[400px]", "min-h-[500px]"]}
           lineHeight="h-20"
