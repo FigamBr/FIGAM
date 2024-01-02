@@ -10,7 +10,7 @@ interface Props {
 
 const AboutHome = ({ data }: Props) => {
   return (
-    <div className="flex flex-col w-full sm:flex-row gap-4 justify-center">
+    <div className="flex flex-col w-fullgap-4 justify-center gap-4">
       <ScrollOfImage>
         {data &&
           data.slices[0].items.map((item: any) => (
@@ -23,17 +23,19 @@ const AboutHome = ({ data }: Props) => {
             />
           ))}
       </ScrollOfImage>
-      <section className='flex flex-col items-center gap-4'>
-        <div className="w-full h-56">
+      <section className='flex flex-col items-center gap-4 md:flex-row'>
+        <div className="w-full h-56 md:w-5/12 md:h-80">
           <CustomImage src={data.about_image.url} alt={data.about_image.alt} />
         </div>
-        <div className='flex flex-col gap-4 text-justify items-center'>
-          <h2 className=' text-xl font-normal'>{data.about_title[0].text}</h2>
-          <p className=' text-xs font-light'>{data.about_text[0].text}</p>
+        <div className='flex flex-col gap-4 items-center md:w-7/12 md:items-start '>
+          <h2 className=' text-xl font-normal md:text-4xl'>{data.about_title[0].text}</h2>
+          <p className=' text-xs lg:text-base text-justify font-light'>{data.about_text[0].text}</p>
         </div>
 
-        <ComponentButton text="Saiba mais" color="primary" link="/about" />
       </section>
+      <div className='flex flex-col items-center'>
+        <ComponentButton text="Saiba mais" color="primary" link="/about" />
+      </div>
     </div>
   )
 }
