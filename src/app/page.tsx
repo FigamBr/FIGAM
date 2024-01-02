@@ -11,10 +11,10 @@ const Home = async () => {
   const data = home.data
   console.log(data)
   return (
-    <>
+    <div className="flex flex-col gap-4">
       <HeaderHome data={data} />
       <AboutHome data={data} />
-    </>
+    </div>
 
   )
 }
