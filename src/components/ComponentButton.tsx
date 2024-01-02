@@ -12,7 +12,7 @@ interface Props {
 
 const ComponentButton = ({ text,color,link }: Props) => {
   return (
-    <Link href={link} className={` bg-${color}  text-xs font-light w-24 h-8 text-white flex items-center justify-center`}>
+    <Link href={link} className={` bg-${color} text-xs md:text-lg font-light w-24 lg:w-[170px] h-8 lg:h-[50px] text-white flex items-center justify-center`}>
       {text}
     </Link>
   )
