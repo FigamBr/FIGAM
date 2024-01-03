@@ -351,17 +351,6 @@ interface HomeDocumentData {
   about_text: prismic.RichTextField;
 
   /**
-   * text_core_1 field in *Home*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home.text_core_1
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text_core_1: prismic.RichTextField;
-
-  /**
    * title_core_1 field in *Home*
    *
    * - **Field Type**: Rich Text
@@ -373,15 +362,15 @@ interface HomeDocumentData {
   title_core_1: prismic.RichTextField;
 
   /**
-   * text_core_2 field in *Home*
+   * text_core_1 field in *Home*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: home.text_core_2
+   * - **API ID Path**: home.text_core_1
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  text_core_2: prismic.RichTextField;
+  text_core_1: prismic.RichTextField;
 
   /**
    * title_core_2 field in *Home*
@@ -393,6 +382,17 @@ interface HomeDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   title_core_2: prismic.RichTextField;
+
+  /**
+   * text_core_2 field in *Home*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.text_core_2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_core_2: prismic.RichTextField;
 
   /**
    * image_core_1 field in *Home*
