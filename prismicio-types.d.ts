@@ -351,6 +351,94 @@ interface HomeDocumentData {
   about_text: prismic.RichTextField;
 
   /**
+   * text_core_1 field in *Home*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.text_core_1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_core_1: prismic.RichTextField;
+
+  /**
+   * title_core_1 field in *Home*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.title_core_1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_core_1: prismic.RichTextField;
+
+  /**
+   * text_core_2 field in *Home*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.text_core_2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_core_2: prismic.RichTextField;
+
+  /**
+   * title_core_2 field in *Home*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.title_core_2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_core_2: prismic.RichTextField;
+
+  /**
+   * image_core_1 field in *Home*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.image_core_1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_core_1: prismic.ImageField<never>;
+
+  /**
+   * image_core_2 field in *Home*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.image_core_2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_core_2: prismic.ImageField<never>;
+
+  /**
+   * main_core_tile field in *Home*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.main_core_tile
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_core_tile: prismic.RichTextField;
+
+  /**
+   * main_core_text field in *Home*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.main_core_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_core_text: prismic.RichTextField;
+
+  /**
    * Slice Zone field in *Home*
    *
    * - **Field Type**: Slice Zone
