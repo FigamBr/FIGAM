@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import CircleHome from '@/components/CircleHome'
 import CustomImage from '@/components/CustomImage'
+import { formactDate } from '@/helpers/formactDate'
 
 interface Props {
     newsPage: any
@@ -10,13 +11,7 @@ interface Props {
 
 const MainNew = ({ newsPage }: Props) => {
 
-    const formattedLastPublicationDate = new Date(
-        newsPage.last_publication_date
-    ).toLocaleDateString("pt-br", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric"
-    });
+    const postDate = formactDate(newsPage.last_publication_date)
 
     return (
         <Link href={`/news/post/${newsPage.uid}`}>
@@ -33,10 +28,9 @@ const MainNew = ({ newsPage }: Props) => {
                     </div>
                     <p className="text-left font-light text-xs line-clamp-8">
                         {newsPage.data.main_news_description[0].text}
-
                     </p>
                     <div className="font-normal text-xs flex justify-between items-center">
-                        <p>Data da Publicação: <span className="font-light">{formattedLastPublicationDate}</span></p>
+                        <p>Data da Publicação: <span className="font-light">{postDate}</span></p>
                         <p className=' text-sm font-semibold text-primary hover:text-secondary '>Saiba mais!</p>
                     </div>
                 </div>
@@ -56,7 +50,7 @@ const MainNew = ({ newsPage }: Props) => {
                             {newsPage.data.main_news_description[0].text}
                         </p>
                         <div className="font-normal text-xs flex justify-between items-center">
-                            <p>Data da Publicação: <span className="font-light">{formattedLastPublicationDate}</span></p>
+                            <p>Data da Publicação: <span className="font-light">{postDate}</span></p>
                             <p className=' text-base font-semibold text-primary hover:text-secondary '>Saiba mais</p>
                         </div>
                     </div>
