@@ -12,9 +12,9 @@ import {
 } from "@nextui-org/react";
 
 const NavBar = () => {
-  const menuItems = ["Inicio", "Sobre", "Projetos", "Contato"];
+  const menuItems = ["Inicio", "Sobre", "Noticias", "Contato"];
 
-  const linkMenu = ["/", "/about", "/projects", "/contact"];
+  const linkMenu = ["/", "/about", "/news", "/contact"];
 
   return (
     <Navbar isBordered>
@@ -30,7 +30,7 @@ const NavBar = () => {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="start">
         <NavbarBrand>
-          <p className="font-bold text-inherit text-primary">Figam</p>
+          <p className="font-bold text-inherit text-primary">FIGAM</p>
         </NavbarBrand>
       </NavbarContent>
 
@@ -46,8 +46,8 @@ const NavBar = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/projects">
-            Projetos
+          <Link color="foreground" href="/news">
+            Notícias
           </Link>
         </NavbarItem>
       </NavbarContent>
