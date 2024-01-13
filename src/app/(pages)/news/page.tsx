@@ -21,7 +21,7 @@ const News = async () => {
 
       <section className='flex flex-col gap-5 items-center'>
         {post && post.map((post: any) => (
-          <PostCard post={post} />
+          <PostCard post={post} key={post.uid}/>
         ))}
       </section>
     </div>
