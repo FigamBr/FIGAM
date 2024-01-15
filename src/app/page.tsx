@@ -1,13 +1,12 @@
 
-import { createClient } from "@/prismicio";
 import React from 'react'
 import HeaderHome from './components/HeaderHome';
 import AboutHome from "./components/AboutHome";
 import CoreHome from "./components/Core";
+import { prismicClient } from "@/services/prismic";
 
 const Home = async () => {
-  const prismic = createClient();
-  const home: any = await prismic.getByUID("home", "home_page_1");
+  const home: any = await prismicClient.getByUID("home", "home_page_1");
 
   const data = home.data
   return (

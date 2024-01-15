@@ -4,12 +4,11 @@ import CustomImageScroll from "@/components/CustomImageScroll";
 import DecorationPhrase from "@/components/DecorationPhrase";
 import HeaderAndText from "@/components/HeaderAndText";
 import ScrollOfImage from "@/components/ScrollOfImage";
-import { createClient } from "@/prismicio";
+import { prismicClient } from "@/services/prismic";
 import React from "react";
 
 const page = async () => {
-  const prismic = createClient();
-  const about: any = await prismic.getByUID("about", "sobre-a-figam");
+  const about: any = await prismicClient.getByUID("about", "sobre-a-figam");
 
   const slices = about.data.slices[0];
 
