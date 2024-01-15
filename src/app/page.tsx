@@ -10,7 +10,6 @@ const Home = async () => {
   const home: any = await prismic.getByUID("home", "home_page_1");
 
   const data = home.data
-  console.log(data)
   return (
     <div className="flex flex-col gap-5">
       <HeaderHome data={data} />
