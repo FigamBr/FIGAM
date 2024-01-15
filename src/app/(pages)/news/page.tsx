@@ -19,7 +19,7 @@ const News = async () => {
 
       <LastNewsHeader />
 
-      <section className='flex flex-col gap-5 items-center'>
+      <section className='flex flex-col lg:flex-row lg:flex-wrap gap-5 items-center justify-between '>
         {post && post.map((post: any) => (
           <PostCard post={post} key={post.uid}/>
         ))}
