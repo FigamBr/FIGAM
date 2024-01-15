@@ -82,7 +82,9 @@ const page = async ({ params }: { params: { id: string } }) => {
     } catch (error) {
         console.error("Error fetching post:", error);
         // Pode ser apropriado renderizar uma mensagem de erro ou redirecionar para uma página de erro.
-        return <p>Erro ao carregar o post.</p>;
+        return <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-md mb-4">
+            <p>Erro ao carregar o post.</p>
+        </div>
     }
 }
 

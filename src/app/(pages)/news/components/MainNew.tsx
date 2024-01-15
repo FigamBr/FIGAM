@@ -14,7 +14,7 @@ const MainNew = ({ newsPage }: Props) => {
     const postDate = formactDate(newsPage.last_publication_date)
 
     return (
-        <Link href={`/news/post/${newsPage.uid}`}>
+        <Link href={`/news/main`}>
 
             <div className="flex flex-col gap-2 md:flex-row hover:size-5 transition-transform duration-300 ease-in-out">
                 <div className="flex flex-col gap-4 md:hidden">
