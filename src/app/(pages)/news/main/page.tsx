@@ -35,7 +35,7 @@ const page = async () => {
     return (
         <div className="flex flex-col w-full gap-6">
             <div className="flex flex-col gap-2 ">
-                <header className="flex flex-col gap-4  md:hidden">
+                <header className="flex flex-col gap-4 md:hidden">
                     <CircleHome hidden />
                     <h2 className="font-normal text-2xl">{post.data.main_news_title[0].text}</h2>
                     <div className="flex w-full h-56 md:h-[400px]">

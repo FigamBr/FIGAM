@@ -39,7 +39,7 @@ const page = async ({ params }: { params: { id: string } }) => {
 
         return (
             <div className="flex flex-col w-full gap-6">
-                <div className="flex flex-col gap-2 hover:size-5 transition-transform duration-300 ease-in-out">
+                <div className="flex flex-col gap-2 ">
                     <header className="flex flex-col gap-4  md:hidden">
                         <CircleHome hidden />
                         <h2 className="font-normal text-2xl">{post.data.title[0].text}</h2>
