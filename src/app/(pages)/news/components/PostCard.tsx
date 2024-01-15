@@ -12,7 +12,7 @@ const PostCard = ({ post }: Props) => {
     const postDate = formactDate(post.last_publication_date)
 
     return (
-        <Link href={`/post/post/${post.uid}`} className='flex flex-col items-center  justify-center w-10/12 lg:w-[48%] '>
+        <Link href={`/news/post/${post.uid}`} className='flex flex-col items-center  justify-center w-10/12 lg:w-[48%] '>
             <div className='flex flex-col w-full shadow-xl min-h-[400px] lg:min-h-[520px] justify-between  hover:size-5 transition-transform duration-300 ease-in-out'>
                 <div className=" w-full h-40 lg:h-60">
                     <CustomImage
