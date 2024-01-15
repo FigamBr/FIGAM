@@ -14,7 +14,7 @@ const CustomImage: React.FC<CustomImageProps> = ({ src, alt, back }) => {
       {back && (
         <ImageBackground />
       )}
-      <Image src={src} fill objectFit="cover" alt={alt} />
+      <Image src={src} fill objectFit="cover" alt={alt ?? ''} quality={100}/>
     </figure>
   );
 };
