@@ -10,11 +10,13 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/react";
+import Image from "next/image";
+
 
 const NavBar = () => {
-  const menuItems = ["Inicio", "Sobre", "Noticias", "Contato"];
+  const menuItems = ["Inicio", "Sobre", "Noticias", "Agenda", "Contato"];
 
-  const linkMenu = ["/", "/about", "/news", "/contact"];
+  const linkMenu = ["/", "/about", "/news", "/calendar", "/contact"];
 
   return (
     <Navbar isBordered>
@@ -24,13 +26,13 @@ const NavBar = () => {
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
-          <p className="font-bold text-inherit text-primary">FIGAM</p>
+          <Image src={"/logofigam.png"} alt="FIGAM" width="120" height="120" />
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="start">
         <NavbarBrand>
-          <p className="font-bold text-inherit text-primary">FIGAM</p>
+          <Image src={"/logofigam.png"} alt="FIGAM" width="120" height="120" />
         </NavbarBrand>
       </NavbarContent>
 
@@ -48,6 +50,11 @@ const NavBar = () => {
         <NavbarItem>
           <Link color="foreground" href="/news">
             Notícias
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="/calendar">
+            Agenda
           </Link>
         </NavbarItem>
       </NavbarContent>

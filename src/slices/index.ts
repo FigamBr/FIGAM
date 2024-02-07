@@ -4,5 +4,6 @@ import dynamic from "next/dynamic";
 
 export const components = {
   about1: dynamic(() => import("./About1")),
+  event_card: dynamic(() => import("./EventCard")),
   image_slide: dynamic(() => import("./Imageslide")),
 };

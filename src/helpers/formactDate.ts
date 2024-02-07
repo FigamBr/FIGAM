@@ -1,4 +1,4 @@
-export function formactDate(date: Date): string {
+export function formactDate(date: any): string {
   const formattedLastPublicationDate = new Date(date).toLocaleDateString(
     "pt-br",
     {

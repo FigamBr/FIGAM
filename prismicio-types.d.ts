@@ -267,6 +267,169 @@ interface AboutDocumentData {
 export type AboutDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<AboutDocumentData>, "about", Lang>;
 
+type CalendarDocumentDataSlicesSlice = EventCardSlice;
+
+/**
+ * Content for Calendar documents
+ */
+interface CalendarDocumentData {
+  /**
+   * calendar_tilte field in *Calendar*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: calendar.calendar_tilte
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  calendar_tilte: prismic.RichTextField;
+
+  /**
+   * calendar_subtitle field in *Calendar*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: calendar.calendar_subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  calendar_subtitle: prismic.RichTextField;
+
+  /**
+   * calendar_text field in *Calendar*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: calendar.calendar_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  calendar_text: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Calendar*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: calendar.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<CalendarDocumentDataSlicesSlice> /**
+   * Meta Description field in *Calendar*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: calendar.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Calendar*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: calendar.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Calendar*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: calendar.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Calendar document from Prismic
+ *
+ * - **API ID**: `calendar`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CalendarDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<CalendarDocumentData>,
+    "calendar",
+    Lang
+  >;
+
+/**
+ * Content for Events_card documents
+ */
+interface EventsCardDocumentData {
+  /**
+   * event_image field in *Events_card*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events_card.event_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  event_image: prismic.ImageField<never>;
+
+  /**
+   * event_title field in *Events_card*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events_card.event_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  event_title: prismic.RichTextField;
+
+  /**
+   * event_text field in *Events_card*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events_card.event_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  event_text: prismic.RichTextField;
+
+  /**
+   * event_date field in *Events_card*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events_card.event_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  event_date: prismic.DateField;
+}
+
+/**
+ * Events_card document from Prismic
+ *
+ * - **API ID**: `events_card`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type EventsCardDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<EventsCardDocumentData>,
+    "events_card",
+    Lang
+  >;
+
 type HomeDocumentDataSlicesSlice = ImageSlideSlice;
 
 /**
@@ -588,11 +751,11 @@ export type NewsDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<NewsDocumentData>, "news", Lang>;
 
 /**
- * Content for post documents
+ * Content for Post documents
  */
 interface PostDocumentData {
   /**
-   * Title field in *post*
+   * Title field in *Post*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -603,7 +766,7 @@ interface PostDocumentData {
   title: prismic.RichTextField;
 
   /**
-   * cover field in *post*
+   * cover field in *Post*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -614,7 +777,7 @@ interface PostDocumentData {
   cover: prismic.ImageField<never>;
 
   /**
-   * description field in *post*
+   * description field in *Post*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -625,7 +788,7 @@ interface PostDocumentData {
   description: prismic.RichTextField;
 
   /**
-   * anexx field in *post*
+   * anexx field in *Post*
    *
    * - **Field Type**: Link to Media
    * - **Placeholder**: *None*
@@ -637,7 +800,7 @@ interface PostDocumentData {
 }
 
 /**
- * post document from Prismic
+ * Post document from Prismic
  *
  * - **API ID**: `post`
  * - **Repeatable**: `true`
@@ -698,6 +861,8 @@ export type SlideimageDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | AboutDocument
+  | CalendarDocument
+  | EventsCardDocument
   | HomeDocument
   | NewsDocument
   | PostDocument
@@ -729,6 +894,96 @@ type About1SliceVariation = About1SliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type About1Slice = prismic.SharedSlice<"about1", About1SliceVariation>;
+
+/**
+ * Primary content in *EventCard → Primary*
+ */
+export interface EventCardSliceDefaultPrimary {
+  /**
+   * event_image field in *EventCard → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_card.primary.event_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  event_image: prismic.ImageField<never>;
+
+  /**
+   * event_title field in *EventCard → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_card.primary.event_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  event_title: prismic.RichTextField;
+
+  /**
+   * event_text field in *EventCard → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_card.primary.event_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  event_text: prismic.RichTextField;
+
+  /**
+   * event_date field in *EventCard → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_card.primary.event_date
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  event_date: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *EventCard → Items*
+ */
+export interface EventCardSliceDefaultItem {
+  /**
+   * event_image field in *EventCard → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_card.items[].event_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  event_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for EventCard Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EventCardSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<EventCardSliceDefaultPrimary>,
+  Simplify<EventCardSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *EventCard*
+ */
+type EventCardSliceVariation = EventCardSliceDefault;
+
+/**
+ * EventCard Shared Slice
+ *
+ * - **API ID**: `event_card`
+ * - **Description**: EventCard
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EventCardSlice = prismic.SharedSlice<
+  "event_card",
+  EventCardSliceVariation
+>;
 
 /**
  * Primary content in *ImageSlide → Items*
@@ -800,6 +1055,11 @@ declare module "@prismicio/client" {
       AboutDocumentDataPhrases1Item,
       AboutDocumentDataPhrases2Item,
       AboutDocumentDataSlicesSlice,
+      CalendarDocument,
+      CalendarDocumentData,
+      CalendarDocumentDataSlicesSlice,
+      EventsCardDocument,
+      EventsCardDocumentData,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
@@ -815,6 +1075,11 @@ declare module "@prismicio/client" {
       About1Slice,
       About1SliceVariation,
       About1SliceDefault,
+      EventCardSlice,
+      EventCardSliceDefaultPrimary,
+      EventCardSliceDefaultItem,
+      EventCardSliceVariation,
+      EventCardSliceDefault,
       ImageSlideSlice,
       ImageSlideSliceDefaultItem,
       ImageSlideSliceVariation,
