@@ -2,24 +2,33 @@ import ComponentButton from '@/components/ComponentButton'
 import CustomImage from '@/components/CustomImage'
 import CustomImageScroll from '@/components/CustomImageScroll'
 import ScrollOfImage from '@/components/ScrollOfImage'
+import { prismicClient } from '@/services/prismic'
 import React from 'react'
 
 interface Props {
   data: any
 }
 
-const AboutHome = ({ data }: Props) => {
+const AboutHome = async ({ data }: Props) => {
+  const events: any = await prismicClient.getAllByType("events_card", {
+    pageSize: 10,
+    orderings: ["my.events_card.event_date"]
+  });
+
+  console.log(events)
   return (
     <div className="flex flex-col w-fullgap-4 justify-center gap-4">
+      <h2 className=' text-xl text-center font-normal md:text-4xl'>Calendário de eventos</h2>
       <ScrollOfImage>
-        {data &&
-          data.slices[0].items.map((item: any) => (
+        {events &&
+          events.map((item: any) => (
             <CustomImageScroll
               home
-              src={item.image.url}
-              alt={item.image.alt}
-              key={item.image.id}
-              title={item.title[0]?.text}
+              uid={item.uid}
+              src={item.data.event_image.url}
+              alt={item.data.event_image.alt}
+              key={item.uid}
+              title={item.data.event_title[0]?.text}
             />
           ))}
       </ScrollOfImage>

@@ -10,7 +10,7 @@ const page = async () => {
 
     const events: any = await prismicClient.getAllByType("events_card", {
         pageSize: 10,
-        orderings: ["my.post.first_publication_date desc"]
+        orderings: ["my.events_card.event_date"]
     });
 
     const data = calendarPage.data
