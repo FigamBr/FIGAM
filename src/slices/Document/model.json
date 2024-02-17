@@ -1,0 +1,27 @@
+{
+  "id": "document",
+  "type": "SharedSlice",
+  "name": "Document",
+  "description": "Document",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "annex": {
+          "type": "Link",
+          "config": {
+            "label": "annex",
+            "placeholder": "",
+            "select": "media"
+          }
+        }
+      }
+    }
+  ]
+}

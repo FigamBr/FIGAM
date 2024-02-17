@@ -267,6 +267,138 @@ interface AboutDocumentData {
 export type AboutDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<AboutDocumentData>, "about", Lang>;
 
+type AccountabilityDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Accountability documents
+ */
+interface AccountabilityDocumentData {
+  /**
+   * accountability_text field in *Accountability*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accountability.accountability_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  accountability_text: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Accountability*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accountability.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AccountabilityDocumentDataSlicesSlice> /**
+   * Meta Description field in *Accountability*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: accountability.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Accountability*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accountability.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Accountability*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: accountability.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Accountability document from Prismic
+ *
+ * - **API ID**: `accountability`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AccountabilityDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<AccountabilityDocumentData>,
+    "accountability",
+    Lang
+  >;
+
+type AccountabilityCardDocumentDataSlicesSlice = DocumentSlice;
+
+/**
+ * Content for Accountability_card documents
+ */
+interface AccountabilityCardDocumentData {
+  /**
+   * title field in *Accountability_card*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accountability_card.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * text field in *Accountability_card*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accountability_card.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Accountability_card*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accountability_card.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AccountabilityCardDocumentDataSlicesSlice>;
+}
+
+/**
+ * Accountability_card document from Prismic
+ *
+ * - **API ID**: `accountability_card`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AccountabilityCardDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<AccountabilityCardDocumentData>,
+    "accountability_card",
+    Lang
+  >;
+
 type CalendarDocumentDataSlicesSlice = EventCardSlice;
 
 /**
@@ -861,6 +993,8 @@ export type SlideimageDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | AboutDocument
+  | AccountabilityDocument
+  | AccountabilityCardDocument
   | CalendarDocument
   | EventsCardDocument
   | HomeDocument
@@ -894,6 +1028,51 @@ type About1SliceVariation = About1SliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type About1Slice = prismic.SharedSlice<"about1", About1SliceVariation>;
+
+/**
+ * Primary content in *Document → Items*
+ */
+export interface DocumentSliceDefaultItem {
+  /**
+   * annex field in *Document → Items*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: document.items[].annex
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  annex: prismic.LinkToMediaField;
+}
+
+/**
+ * Default variation for Document Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DocumentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<DocumentSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Document*
+ */
+type DocumentSliceVariation = DocumentSliceDefault;
+
+/**
+ * Document Shared Slice
+ *
+ * - **API ID**: `document`
+ * - **Description**: Document
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DocumentSlice = prismic.SharedSlice<
+  "document",
+  DocumentSliceVariation
+>;
 
 /**
  * Primary content in *EventCard → Primary*
@@ -1055,6 +1234,12 @@ declare module "@prismicio/client" {
       AboutDocumentDataPhrases1Item,
       AboutDocumentDataPhrases2Item,
       AboutDocumentDataSlicesSlice,
+      AccountabilityDocument,
+      AccountabilityDocumentData,
+      AccountabilityDocumentDataSlicesSlice,
+      AccountabilityCardDocument,
+      AccountabilityCardDocumentData,
+      AccountabilityCardDocumentDataSlicesSlice,
       CalendarDocument,
       CalendarDocumentData,
       CalendarDocumentDataSlicesSlice,
@@ -1075,6 +1260,10 @@ declare module "@prismicio/client" {
       About1Slice,
       About1SliceVariation,
       About1SliceDefault,
+      DocumentSlice,
+      DocumentSliceDefaultItem,
+      DocumentSliceVariation,
+      DocumentSliceDefault,
       EventCardSlice,
       EventCardSliceDefaultPrimary,
       EventCardSliceDefaultItem,
