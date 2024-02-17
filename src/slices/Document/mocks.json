@@ -20,6 +20,28 @@
 								"__TYPE__": "FileLink"
 							}
 						}
+					],
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Sit culpa Lorem ullamco officia laboris ipsum."
+									}
+								}
+							]
+						}
+					],
+					[
+						"type",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "1",
+							"type": "Select"
+						}
 					]
 				]
 			}

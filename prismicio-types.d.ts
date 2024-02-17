@@ -267,7 +267,7 @@ interface AboutDocumentData {
 export type AboutDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<AboutDocumentData>, "about", Lang>;
 
-type AccountabilityDocumentDataSlicesSlice = never;
+type AccountabilityDocumentDataSlicesSlice = DocumentSlice;
 
 /**
  * Content for Accountability documents
@@ -1034,6 +1034,16 @@ export type About1Slice = prismic.SharedSlice<"about1", About1SliceVariation>;
  */
 export interface DocumentSliceDefaultItem {
   /**
+   * Title field in *Document → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: document.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
    * annex field in *Document → Items*
    *
    * - **Field Type**: Link to Media
@@ -1042,6 +1052,16 @@ export interface DocumentSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   annex: prismic.LinkToMediaField;
+
+  /**
+   * Type field in *Document → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: document.items[].type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  type: prismic.SelectField<"1" | "2">;
 }
 
 /**

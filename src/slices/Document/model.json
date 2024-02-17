@@ -13,12 +13,32 @@
       "imageUrl": "",
       "primary": {},
       "items": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
         "annex": {
           "type": "Link",
           "config": {
             "label": "annex",
             "placeholder": "",
             "select": "media"
+          }
+        },
+        "type": {
+          "type": "Select",
+          "config": {
+            "label": "Type",
+            "placeholder": "",
+            "options": [
+              "1",
+              "2"
+            ]
           }
         }
       }
