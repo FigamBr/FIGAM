@@ -40,6 +40,14 @@
             }
           }
         }
+      },
+      "type": {
+        "type": "Select",
+        "config": {
+          "label": "type",
+          "placeholder": "",
+          "options": ["Prestação de Contas", "Oficio"]
+        }
       }
     }
   }

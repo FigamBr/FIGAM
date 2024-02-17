@@ -29,17 +29,6 @@
             "placeholder": "",
             "select": "media"
           }
-        },
-        "type": {
-          "type": "Select",
-          "config": {
-            "label": "Type",
-            "placeholder": "",
-            "options": [
-              "1",
-              "2"
-            ]
-          }
         }
       }
     }

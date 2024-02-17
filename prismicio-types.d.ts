@@ -381,6 +381,17 @@ interface AccountabilityCardDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<AccountabilityCardDocumentDataSlicesSlice>;
+
+  /**
+   * type field in *Accountability_card*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accountability_card.type
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  type: prismic.SelectField<"Prestação de Contas" | "Oficio">;
 }
 
 /**
@@ -1052,16 +1063,6 @@ export interface DocumentSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   annex: prismic.LinkToMediaField;
-
-  /**
-   * Type field in *Document → Items*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: document.items[].type
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  type: prismic.SelectField<"1" | "2">;
 }
 
 /**

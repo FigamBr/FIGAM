@@ -34,14 +34,6 @@
 								}
 							]
 						}
-					],
-					[
-						"type",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "1",
-							"type": "Select"
-						}
 					]
 				]
 			}
