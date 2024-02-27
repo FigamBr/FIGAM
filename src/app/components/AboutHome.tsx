@@ -29,6 +29,7 @@ const AboutHome = async ({ data }: Props) => {
               alt={item.data.event_image.alt}
               key={item.uid}
               title={item.data.event_title[0]?.text}
+              href={`calendar/${item.uid}`}
             />
           ))}
       </ScrollOfImage>

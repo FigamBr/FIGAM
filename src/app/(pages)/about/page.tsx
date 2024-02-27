@@ -78,6 +78,7 @@ const page = async () => {
               alt={item.image.alt}
               key={item.image.id}
               title={item.title[0]?.text}
+              href="/about"
             />
           ))}
       </ScrollOfImage>
