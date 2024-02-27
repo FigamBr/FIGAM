@@ -350,28 +350,6 @@ type AccountabilityCardDocumentDataSlicesSlice = DocumentSlice;
  */
 interface AccountabilityCardDocumentData {
   /**
-   * title field in *Accountability_card*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: accountability_card.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * text field in *Accountability_card*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: accountability_card.text
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
-
-  /**
    * Slice Zone field in *Accountability_card*
    *
    * - **Field Type**: Slice Zone
@@ -381,17 +359,6 @@ interface AccountabilityCardDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<AccountabilityCardDocumentDataSlicesSlice>;
-
-  /**
-   * type field in *Accountability_card*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: accountability_card.type
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  type: prismic.SelectField<"Prestação de Contas" | "Oficio">;
 }
 
 /**
@@ -1041,21 +1008,47 @@ type About1SliceVariation = About1SliceDefault;
 export type About1Slice = prismic.SharedSlice<"about1", About1SliceVariation>;
 
 /**
+ * Primary content in *Document → Primary*
+ */
+export interface DocumentSliceDefaultPrimary {
+  /**
+   * Title field in *Document → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: document.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *Document → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: document.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * type field in *Document → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Ofício
+   * - **API ID Path**: document.primary.type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  type: prismic.SelectField<"Ofício" | "Prestação de Contas", "filled">;
+}
+
+/**
  * Primary content in *Document → Items*
  */
 export interface DocumentSliceDefaultItem {
   /**
-   * Title field in *Document → Items*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: document.items[].title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * annex field in *Document → Items*
+   * Annex field in *Document → Items*
    *
    * - **Field Type**: Link to Media
    * - **Placeholder**: *None*
@@ -1063,6 +1056,16 @@ export interface DocumentSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   annex: prismic.LinkToMediaField;
+
+  /**
+   * Annex Title field in *Document → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: document.items[].annex_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  annex_title: prismic.KeyTextField;
 }
 
 /**
@@ -1074,7 +1077,7 @@ export interface DocumentSliceDefaultItem {
  */
 export type DocumentSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<DocumentSliceDefaultPrimary>,
   Simplify<DocumentSliceDefaultItem>
 >;
 
@@ -1282,6 +1285,7 @@ declare module "@prismicio/client" {
       About1SliceVariation,
       About1SliceDefault,
       DocumentSlice,
+      DocumentSliceDefaultPrimary,
       DocumentSliceDefaultItem,
       DocumentSliceVariation,
       DocumentSliceDefault,

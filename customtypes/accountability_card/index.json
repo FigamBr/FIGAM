@@ -12,24 +12,6 @@
         },
         "type": "UID"
       },
-      "title": {
-        "type": "StructuredText",
-        "config": {
-          "label": "title",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-        }
-      },
-      "text": {
-        "type": "StructuredText",
-        "config": {
-          "label": "text",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
@@ -39,14 +21,6 @@
               "type": "SharedSlice"
             }
           }
-        }
-      },
-      "type": {
-        "type": "Select",
-        "config": {
-          "label": "type",
-          "placeholder": "",
-          "options": ["Prestação de Contas", "Oficio"]
         }
       }
     }
