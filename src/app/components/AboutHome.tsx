@@ -2,7 +2,7 @@ import ComponentButton from '@/components/ComponentButton'
 import CustomImage from '@/components/CustomImage'
 import CustomImageScroll from '@/components/CustomImageScroll'
 import ScrollOfImage from '@/components/ScrollOfImage'
-import { prismicClient } from '@/services/prismic'
+import { createClient } from '@/prismicio'
 import React from 'react'
 
 interface Props {
@@ -10,7 +10,8 @@ interface Props {
 }
 
 const AboutHome = async ({ data }: Props) => {
-  const events: any = await prismicClient.getAllByType("events_card", {
+  const prismic = createClient();
+  const events: any = await prismic.getAllByType("events_card", {
     pageSize: 10,
     orderings: ["my.events_card.event_date"]
   });
