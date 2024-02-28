@@ -14,7 +14,7 @@ import Image from "next/image";
 
 
 const NavBar = () => {
-  const menuItems = ["Inicio", "Sobre", "Noticias", "Agenda", "Contato", "accountability"];
+  const menuItems = ["Inicio", "Sobre", "Noticias", "Agenda", "Contato", "Transparência"];
 
   const linkMenu = ["/", "/about", "/news", "/calendar", "/contact", "/accountability"];
 
