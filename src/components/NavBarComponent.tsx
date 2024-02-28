@@ -14,9 +14,9 @@ import Image from "next/image";
 
 
 const NavBar = () => {
-  const menuItems = ["Inicio", "Sobre", "Noticias", "Agenda", "Contato"];
+  const menuItems = ["Inicio", "Sobre", "Noticias", "Agenda", "Contato", "accountability"];
 
-  const linkMenu = ["/", "/about", "/news", "/calendar", "/contact"];
+  const linkMenu = ["/", "/about", "/news", "/calendar", "/contact", "/accountability"];
 
   return (
     <Navbar isBordered>
@@ -55,6 +55,11 @@ const NavBar = () => {
         <NavbarItem>
           <Link color="foreground" href="/calendar">
             Agenda
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="/accountability">
+            Transparência
           </Link>
         </NavbarItem>
       </NavbarContent>
