@@ -13,7 +13,7 @@ interface Props {
 const AccountabillityCard = ({ card }: Props) => {
     const cardDate = formactDate(card.first_publication_date)
 
-    return <Link href={`/accountability/${card.uid}`} className='flex w-full flex-col items-center justify-center sm:w-[45%] xl:w-[30%]'>
+    return <Link href={`/accountability/item/${card.uid}`} className='flex w-full flex-col items-center justify-center sm:w-[45%] xl:w-[30%]'>
         <div className='flex flex-row  rounded-xl  w-full shadow-xl justify-between  hover:size-5 transition-transform duration-300 ease-in-out'>
             <div className="w-2/6 p-2 flex items-center justify-center">
                 {card.data.type === "Prestação de Contas" ? <FaMoneyCheck className="w-full h-full" /> : <ImLibreoffice className="w-full h-full" />}
