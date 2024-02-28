@@ -1,13 +1,14 @@
 import CircleHome from '@/components/CircleHome'
 import CustomImage from '@/components/CustomImage'
 import { formactDate } from '@/helpers/formactDate'
-import { prismicClient } from '@/services/prismic'
+import { createClient } from '@/prismicio'
 import { Divider } from '@nextui-org/react'
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 import React from 'react'
 
 const page = async () => {
-    const post: any = await prismicClient.getByUID("news", "news_page_1");
+    const prismic = createClient();
+    const post: any = await prismic.getByUID("news", "news_page_1");
     const postDate = formactDate(post.data.last_publication_date)
 
     const description = post.data.main_news_description

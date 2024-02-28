@@ -2,7 +2,29 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "kept",
+				"type": "Text"
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Deserunt incididunt ullamco adipisicing eu quis nulla adipisicing sunt commodo amet laborum in esse voluptate laborum. Duis irure ex quis dolor aute esse consectetur dolor veniam ut esse id sunt exercitation tempor."
+						}
+					}
+				]
+			},
+			"type": {
+				"__TYPE__": "FieldContent",
+				"value": "Ofício",
+				"type": "Select"
+			}
+		},
 		"items": [
 			{
 				"__TYPE__": "GroupItemContent",
@@ -22,17 +44,11 @@
 						}
 					],
 					[
-						"title",
+						"annex_title",
 						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Sit culpa Lorem ullamco officia laboris ipsum."
-									}
-								}
-							]
+							"__TYPE__": "FieldContent",
+							"value": "mistake",
+							"type": "Text"
 						}
 					]
 				]

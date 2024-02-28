@@ -1,14 +1,15 @@
 import CustomImage from '@/components/CustomImage'
 import EventCard from '@/components/EventCard'
-import { prismicClient } from '@/services/prismic';
+import { createClient } from '@/prismicio';
 import Link from 'next/link'
 import React from 'react'
 
 
 const page = async () => {
-    const calendarPage: any = await prismicClient.getByUID("calendar", "calendar_page_1");
+    const prismic = createClient();
+    const calendarPage: any = await prismic.getByUID("calendar", "calendar_page_1");
 
-    const events: any = await prismicClient.getAllByType("events_card", {
+    const events: any = await prismic.getAllByType("events_card", {
         pageSize: 10,
         orderings: ["my.events_card.event_date"]
     });

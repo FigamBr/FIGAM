@@ -14,9 +14,9 @@ import Image from "next/image";
 
 
 const NavBar = () => {
-  const menuItems = ["Inicio", "Sobre", "Noticias", "Agenda", "Contato"];
+  const menuItems = ["Inicio", "Sobre", "Noticias", "Agenda", "Contato", "accountability"];
 
-  const linkMenu = ["/", "/about", "/news", "/calendar", "/contact"];
+  const linkMenu = ["/", "/about", "/news", "/calendar", "/contact", "/accountability"];
 
   return (
     <Navbar isBordered>
@@ -26,13 +26,13 @@ const NavBar = () => {
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
-          <Image src={"/logofigam.png"} alt="FIGAM" width="120" height="120" />
+          <Image src={"/Figam.jpeg"} alt="FIGAM" width="150" height="150" />
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="start">
         <NavbarBrand>
-          <Image src={"/logofigam.png"} alt="FIGAM" width="120" height="120" />
+          <Image src={"/Figam.jpeg"} alt="FIGAM" width="150" height="150" />
         </NavbarBrand>
       </NavbarContent>
 
@@ -55,6 +55,11 @@ const NavBar = () => {
         <NavbarItem>
           <Link color="foreground" href="/calendar">
             Agenda
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="/accountability">
+            Transparência
           </Link>
         </NavbarItem>
       </NavbarContent>

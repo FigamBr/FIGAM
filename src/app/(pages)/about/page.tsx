@@ -4,11 +4,12 @@ import CustomImageScroll from "@/components/CustomImageScroll";
 import DecorationPhrase from "@/components/DecorationPhrase";
 import HeaderAndText from "@/components/HeaderAndText";
 import ScrollOfImage from "@/components/ScrollOfImage";
-import { prismicClient } from "@/services/prismic";
+import { createClient } from "@/prismicio";
 import React from "react";
 
 const page = async () => {
-  const about: any = await prismicClient.getByUID("about", "sobre-a-figam");
+  const prismic = createClient();
+  const about: any = await prismic.getByUID("about", "sobre-a-figam");
 
   const slices = about.data.slices[0];
 
@@ -78,6 +79,7 @@ const page = async () => {
               alt={item.image.alt}
               key={item.image.id}
               title={item.title[0]?.text}
+              href="/about"
             />
           ))}
       </ScrollOfImage>

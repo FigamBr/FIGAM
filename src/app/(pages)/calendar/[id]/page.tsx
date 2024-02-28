@@ -1,14 +1,14 @@
 import CircleHome from '@/components/CircleHome'
 import CustomImage from '@/components/CustomImage'
 import { formactDate } from '@/helpers/formactDate'
-import { prismicClient } from '@/services/prismic'
 import { Divider } from '@nextui-org/react'
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 import React from 'react'
-import { EventsCardDocument } from '../../../../../prismicio-types'
+import { createClient } from '@/prismicio'
 
 const page = async ({ params }: { params: { id: string } }) => {
-    const event: any = await prismicClient.getByUID("events_card", params.id)
+    const prismic = createClient();
+    const event: any = await prismic.getByUID("events_card", params.id)
 
     const eventeDate = formactDate(event.data.event_date)
 
@@ -32,8 +32,6 @@ const page = async ({ params }: { params: { id: string } }) => {
             )
         }
     }
-
-    console.log(event)
 
     return (
         <div className="flex flex-col w-full gap-6">

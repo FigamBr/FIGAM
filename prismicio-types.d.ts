@@ -274,7 +274,18 @@ type AccountabilityDocumentDataSlicesSlice = DocumentSlice;
  */
 interface AccountabilityDocumentData {
   /**
-   * accountability_text field in *Accountability*
+   * Accountability Title field in *Accountability*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accountability.accountability_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  accountability_title: prismic.KeyTextField;
+
+  /**
+   * Accountability Text field in *Accountability*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -343,25 +354,37 @@ export type AccountabilityDocument<Lang extends string = string> =
     Lang
   >;
 
-type AccountabilityCardDocumentDataSlicesSlice = DocumentSlice;
+/**
+ * Item in *Accountability_card → Anex*
+ */
+export interface AccountabilityCardDocumentDataAnexItem {
+  /**
+   * File field in *Accountability_card → Anex*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accountability_card.anex[].file
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  file: prismic.LinkToMediaField;
+
+  /**
+   * Title field in *Accountability_card → Anex*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accountability_card.anex[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
 
 /**
  * Content for Accountability_card documents
  */
 interface AccountabilityCardDocumentData {
   /**
-   * title field in *Accountability_card*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: accountability_card.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * text field in *Accountability_card*
+   * Text field in *Accountability_card*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -372,18 +395,18 @@ interface AccountabilityCardDocumentData {
   text: prismic.RichTextField;
 
   /**
-   * Slice Zone field in *Accountability_card*
+   * Title field in *Accountability_card*
    *
-   * - **Field Type**: Slice Zone
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: accountability_card.slices[]
+   * - **API ID Path**: accountability_card.title
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  slices: prismic.SliceZone<AccountabilityCardDocumentDataSlicesSlice>;
+  title: prismic.KeyTextField;
 
   /**
-   * type field in *Accountability_card*
+   * Type field in *Accountability_card*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
@@ -391,7 +414,18 @@ interface AccountabilityCardDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  type: prismic.SelectField<"Prestação de Contas" | "Oficio">;
+  type: prismic.SelectField<"Ofício" | "Prestação de Contas">;
+
+  /**
+   * Anex field in *Accountability_card*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accountability_card.anex[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  anex: prismic.GroupField<Simplify<AccountabilityCardDocumentDataAnexItem>>;
 }
 
 /**
@@ -1041,21 +1075,47 @@ type About1SliceVariation = About1SliceDefault;
 export type About1Slice = prismic.SharedSlice<"about1", About1SliceVariation>;
 
 /**
+ * Primary content in *Document → Primary*
+ */
+export interface DocumentSliceDefaultPrimary {
+  /**
+   * Title field in *Document → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: document.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *Document → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: document.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * type field in *Document → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Ofício
+   * - **API ID Path**: document.primary.type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  type: prismic.SelectField<"Ofício" | "Prestação de Contas", "filled">;
+}
+
+/**
  * Primary content in *Document → Items*
  */
 export interface DocumentSliceDefaultItem {
   /**
-   * Title field in *Document → Items*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: document.items[].title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * annex field in *Document → Items*
+   * Annex field in *Document → Items*
    *
    * - **Field Type**: Link to Media
    * - **Placeholder**: *None*
@@ -1063,6 +1123,16 @@ export interface DocumentSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   annex: prismic.LinkToMediaField;
+
+  /**
+   * Annex Title field in *Document → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: document.items[].annex_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  annex_title: prismic.KeyTextField;
 }
 
 /**
@@ -1074,7 +1144,7 @@ export interface DocumentSliceDefaultItem {
  */
 export type DocumentSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<DocumentSliceDefaultPrimary>,
   Simplify<DocumentSliceDefaultItem>
 >;
 
@@ -1260,7 +1330,7 @@ declare module "@prismicio/client" {
       AccountabilityDocumentDataSlicesSlice,
       AccountabilityCardDocument,
       AccountabilityCardDocumentData,
-      AccountabilityCardDocumentDataSlicesSlice,
+      AccountabilityCardDocumentDataAnexItem,
       CalendarDocument,
       CalendarDocumentData,
       CalendarDocumentDataSlicesSlice,
@@ -1282,6 +1352,7 @@ declare module "@prismicio/client" {
       About1SliceVariation,
       About1SliceDefault,
       DocumentSlice,
+      DocumentSliceDefaultPrimary,
       DocumentSliceDefaultItem,
       DocumentSliceVariation,
       DocumentSliceDefault,

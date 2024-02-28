@@ -1,11 +1,7 @@
 import Lines from '@/components/Lines'
-import { createClient } from '@/prismicio';
-import {prismicClient} from '@/services/prismic';
 import React from 'react'
 
 const LastNewsHeader = () => {
-  const prismic = createClient();
-
   return (
     <div className='flex flex-row w-full items-center justify-between'>
       <Lines />
