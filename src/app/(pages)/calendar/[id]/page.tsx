@@ -33,8 +33,6 @@ const page = async ({ params }: { params: { id: string } }) => {
         }
     }
 
-    console.log(event)
-
     return (
         <div className="flex flex-col w-full gap-6">
             <div className="flex flex-col gap-2 ">

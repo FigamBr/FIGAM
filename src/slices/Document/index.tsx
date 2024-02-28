@@ -10,7 +10,6 @@ export type DocumentProps = SliceComponentProps<Content.DocumentSlice>;
  * Component for "Document" Slices.
  */
 const Document = ({ slice }: DocumentProps): JSX.Element => {
-  console.log(slice);
   return (
     <section
       data-slice-type={slice.slice_type}

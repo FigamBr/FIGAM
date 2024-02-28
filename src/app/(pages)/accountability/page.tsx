@@ -13,9 +13,6 @@ const Page = async () => {
         orderings: ["my.post.first_publication_date desc"]
     });
 
-    console.log(accountabilitiesPage)
-    console.log(accountabilitiesCard)
-
     return (
         <div>
             <div className="flex flex-col gap-10">
@@ -28,7 +25,7 @@ const Page = async () => {
 
                 <div className='flex flex-col sm:flex-row sm:flex-wrap gap-5 items-center justify-between'>
                     {accountabilitiesCard && accountabilitiesCard.map((card) => (
-                        <AccountabillityCard card={card} />
+                        <AccountabillityCard card={card} key={card.id} />
                     ))}
                 </div>
             </div>

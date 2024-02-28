@@ -16,7 +16,6 @@ const AboutHome = async ({ data }: Props) => {
     orderings: ["my.events_card.event_date"]
   });
 
-  console.log(events)
   return (
     <div className="flex flex-col w-fullgap-4 justify-center gap-4">
       <h2 className=' text-xl text-center font-normal md:text-4xl'>Calendário de eventos</h2>

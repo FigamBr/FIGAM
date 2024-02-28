@@ -12,7 +12,6 @@ type Props = {
 const EventCard = ({ event }: Props) => {
     const eventeDate = formactDate(event.data.event_date)
 
-    console.log(event)
     return (
         <Link href={`/calendar/${event.uid}`} className='flex flex-col items-center justify-center w-10/12 lg:w-[48%]'>
             <div className='flex flex-col w-full shadow-xl min-h-[300px] lg:min-h-[420px] justify-between  hover:size-5 transition-transform duration-300 ease-in-out'>

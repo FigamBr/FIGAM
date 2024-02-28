@@ -12,7 +12,6 @@ const Home = async () => {
 
   const data = home.data
 
-  console.log(data)
   return (
     <div className="flex flex-col gap-5">
       <HeaderHome data={data} />
