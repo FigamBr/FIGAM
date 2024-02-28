@@ -5,17 +5,20 @@ import DecorationPhrase from "@/components/DecorationPhrase";
 import HeaderAndText from "@/components/HeaderAndText";
 import ScrollOfImage from "@/components/ScrollOfImage";
 import { createClient } from "@/prismicio";
+import { PrismicRichText } from "@prismicio/react";
 import React from "react";
 
 const page = async () => {
   const prismic = createClient();
-  const about: any = await prismic.getByUID("about", "sobre-a-figam");
+  const about: any = await prismic.getSingle("about")
 
   const slices = about.data.slices[0];
 
+  console.log(about.data)
+
   return (
     <div className="flex flex-col w-full gap-6">
-      <div className="flex md:min-h-[400x] lg:h-[350px] flex-col md:flex md:flex-row md:items-center">
+      <div className="flex md:min-h-[400x] flex-col md:flex md:flex-row md:items-center">
         <DecorationPhrase
           minHeight={["min-h-[300px]", "min-h-[300px]"]}
           lineHeight="h-20"
@@ -24,13 +27,13 @@ const page = async () => {
         />
 
         <article className="flex flex-col md:w-9/12">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-4">
             <h1 className="text-h1 md:text-[56px]">
               {about.data.title1[0]?.text}
             </h1>
-            <p className="text-paragraph-base text-justify">
-              {about.data.text1[0]?.text}
-            </p>
+            <PrismicRichText field={about.data.text1} components={{
+              paragraph: ({ children }) => <p className="text-paragraph-base text-justify">{children}</p>
+            }} />
           </div>
         </article>
       </div>
@@ -40,11 +43,12 @@ const page = async () => {
       </section>
 
       <article className="flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-center">
-        <HeaderAndText
-          width="w-6/12"
-          title={about.data.title2[0]?.text}
-          text={about.data.text2[0]?.text}
-        />
+        <div className={`flex flex-col gap-2 lg:w-6/12`}>
+          <h1 className="text-h1">{about.data.title2[0]?.text}</h1>
+          <PrismicRichText field={about.data.text2} components={{
+            paragraph: ({ children }) => <p className="text-paragraph-base text-justify">{children}</p>
+          }} />
+        </div>
         <section
           className="pt-5 flex w-full lg:w-6/12 lg:flex-row
           h-56 lg:min-h-[500px] gap-1 items-center justify-center"
