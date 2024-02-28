@@ -17,7 +17,7 @@ const Page = async () => {
         <div>
             <div className="flex flex-col gap-10">
                 <div className="flex flex-col gap-4">
-                    <h1 className='text-2xl font-bold text-center'>{accountabilitiesPage.data.accountability_title}</h1>
+                    <h1 className='text-2xl font-bold text-center text-primary'>{accountabilitiesPage.data.accountability_title}</h1>
                     <PrismicRichText field={accountabilitiesPage.data.accountability_text} components={{
                         paragraph: ({ children }) => <p className='text-medium text-justify'>{children}</p>
                     }} />
