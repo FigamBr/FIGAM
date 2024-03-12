@@ -1,12 +1,12 @@
 export function formactDate(date: any): string {
-  const formattedLastPublicationDate = new Date(date).toLocaleDateString(
-    "pt-br",
-    {
-      day: "2-digit",
-      month: "short",
-      year: "numeric",
-    }
-  );
+  // Ajusta o fuso horário para o Horário de Brasília (BRT)
+  const adjustedDate = new Date(date + "T00:00:00-03:00");
 
-  return formattedLastPublicationDate;
+  const formattedDate = adjustedDate.toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+
+  return formattedDate;
 }

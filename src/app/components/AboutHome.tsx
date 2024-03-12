@@ -33,7 +33,8 @@ const AboutHome = async ({ data }: Props) => {
             />
           ))}
       </ScrollOfImage>
-      <section className='flex flex-col items-center gap-4 md:flex-row'>
+      <section className='flex flex-col items-start gap-4 md:flex-row'>
+
         <div className="w-full h-56 md:w-5/12 md:h-80">
           <CustomImage src={data.about_image.url} alt={data.about_image.alt} />
         </div>
@@ -41,11 +42,10 @@ const AboutHome = async ({ data }: Props) => {
           <h2 className=' text-xl font-normal md:text-4xl'>{data.about_title[0].text}</h2>
           <p className=' text-xs lg:text-base text-justify font-light'>{data.about_text[0].text}</p>
         </div>
-
       </section>
-      <div className='flex flex-col items-center'>
+      {/* <div className='flex flex-col items-center'>
         <ComponentButton text="Saiba mais" color="primary" link="/about" />
-      </div>
+      </div> */}
     </div>
   )
 }

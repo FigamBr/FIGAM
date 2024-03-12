@@ -2,7 +2,7 @@ import CircleHome from '@/components/CircleHome'
 import CustomImage from '@/components/CustomImage'
 import { formactDate } from '@/helpers/formactDate'
 import { Divider } from '@nextui-org/react'
-import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
+import { JSXMapSerializer, PrismicImage, PrismicRichText } from '@prismicio/react'
 import React from 'react'
 import { createClient } from '@/prismicio'
 
@@ -14,20 +14,20 @@ const page = async ({ params }: { params: { id: string } }) => {
 
     const components: JSXMapSerializer = {
         image: (data: any) => {
-
             return (
-                <div className="flex w-full h-72 md:h-[600px] xl:h-[800px]">
-                    <CustomImage
-                        src={data.node.url}
-                        alt={data.node.alt ?? 'Imagem da notícia'}
+                <div className="flex w-full ">
+                    <PrismicImage
+                        field={data.node}
+                        width={data.node.dimensions.width / 2}
+                        height={data.node.dimensions.height / 2}
                     />
                 </div>
             )
         },
-        paragraph: (data: any) => {
+        paragraph: ({ children }) => {
             return (
                 <p className=' text-xs lg:text-base text-justify font-light'>
-                    {data.node.text}
+                    {children}
                 </p>
             )
         }
@@ -36,13 +36,13 @@ const page = async ({ params }: { params: { id: string } }) => {
     return (
         <div className="flex flex-col w-full gap-6">
             <div className="flex flex-col gap-2 ">
-                <header className="flex flex-col gap-4  md:hidden">
+                <header className="flex flex-col gap-4 md:hidden">
                     <CircleHome hidden />
-                    <h2 className="font-normal text-4xl">{eventeDate}</h2>
-                    <div className="font-normal text-justify text-base lg:text-base flex justify-between items-center">
-                        <p>{event.data.event_text[0].text}</p>
+                    <h2 className="font-normal text-xl">{eventeDate}</h2>
+                    <div className="font-normal text-justify text-3xl lg:text-base flex justify-between items-center">
+                        <p>{event.data.event_title[0].text}</p>
                     </div>
-                    <div className="flex w-full h-56 md:h-[400px]">
+                    <div className="flex w-full">
                         <CustomImage
                             src={event.data.event_image.url as string}
                             alt={event.data.event_image.alt as string}
@@ -50,7 +50,7 @@ const page = async ({ params }: { params: { id: string } }) => {
                     </div>
                 </header>
 
-                <header className="hidden md:flex md:flex-row-reverse  w-full h-72 gap-5">
+                <header className="hidden md:flex md:flex-row-reverse w-full h-96 gap-5">
                     <div className="flex w-6/12 h-full">
                         <CustomImage
                             src={event.data.event_image.url as string}
@@ -59,9 +59,9 @@ const page = async ({ params }: { params: { id: string } }) => {
                     </div>
                     <div className='flex flex-col w-6/12 gap-3'>
                         <CircleHome />
-                        <h2 className="font-normal text-4xl lg:text-4xl">{eventeDate}</h2>
-                        <div className="font-normal text-lg lg:text-base flex justify-between items-center">
-                            <p>{event.data.event_text[0].text}</p>
+                        <h2 className="font-normal text-xl lg:text-xl">{eventeDate}</h2>
+                        <div className="font-bold text-lg lg:text-3xl flex justify-between items-center">
+                            <p>{event.data.event_title[0].text}</p>
                         </div>
                     </div>
                 </header>
