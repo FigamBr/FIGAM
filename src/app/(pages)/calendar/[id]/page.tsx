@@ -20,6 +20,7 @@ const page = async ({ params }: { params: { id: string } }) => {
                         field={data.node}
                         width={data.node.dimensions.width / 2}
                         height={data.node.dimensions.height / 2}
+
                     />
                 </div>
             )
