@@ -12,14 +12,18 @@ const HeaderHome = ({ data }: Props) => {
     <div className="flex flex-col w-full sm:flex-row justify-center sm:mt-5 sm:mb-5 lg:mt-10 lg:mb-10">
       <header className="flex flex-row justify-between gap-6 ">
         <div className="flex flex-col gap-3 items-center sm:items-start sm:text-start text-center sm:w-6/12 md:w-7/12 lg:justify-around">
-          <div className="flex gap-4 sm:flex-col sm:gap-2 items-center sm:justify-start">
-            <CircleHome />
-            <h2 className="font-normal text-2xl sm:text-4xl md:text-7xl">{data.home_text[0].text}</h2>
-            <CircleHome hidden />
-          </div>
           <div className="flex flex-col gap-3">
             <h2 className="text-base font-normal md:text-2xl lg:text-4xl">{data.home_subtitle[0].text}</h2>
             <p className="text-xs md:text-xl font-light">{data.text_title[0].text}</p>
+            <p className="text-xs md:text-xl font-light">{data.text_title[1].text}</p>
+          </div>
+          <div className="flex gap-4 sm:flex-col sm:gap-2 items-center sm:justify-start">
+            <CircleHome />
+            <div className='flex gap-4 items-end'>
+              <h2 className="font-normal text-2xl sm:text-4xl md:text-4xl">{data.home_text[0].text}</h2>
+              <h3 className='font-normal  text-2xl'>CULTURA</h3>
+            </div>
+            <CircleHome hidden />
           </div>
           <div className="flex gap-4">
             <ComponentButton text="Saiba mais" color="primary" link="/about" />
