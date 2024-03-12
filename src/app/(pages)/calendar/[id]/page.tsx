@@ -43,12 +43,13 @@ const page = async ({ params }: { params: { id: string } }) => {
                     <div className="font-normal text-justify text-3xl lg:text-base flex justify-between items-center">
                         <p>{event.data.event_title[0].text}</p>
                     </div>
-                    <div className="flex w-full">
+                    <div className="flex w-full h-96">
                         <CustomImage
                             src={event.data.event_image.url as string}
                             alt={event.data.event_image.alt as string}
                         />
                     </div>
+
                 </header>
 
                 <header className="hidden md:flex md:flex-row-reverse w-full h-96 gap-5">
