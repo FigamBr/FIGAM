@@ -543,6 +543,60 @@ export type CalendarDocument<Lang extends string = string> =
   >;
 
 /**
+ * Content for Equipment documents
+ */
+interface EquipmentDocumentData {
+  /**
+   * Title field in *Equipment*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: equipment.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *Equipment*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: equipment.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Read More field in *Equipment*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: equipment.read_more
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  read_more: prismic.LinkField;
+}
+
+/**
+ * Equipment document from Prismic
+ *
+ * - **API ID**: `equipment`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type EquipmentDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<EquipmentDocumentData>,
+    "equipment",
+    Lang
+  >;
+
+/**
  * Content for Events_card documents
  */
 interface EventsCardDocumentData {
@@ -589,6 +643,17 @@ interface EventsCardDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#date
    */
   event_date: prismic.DateField;
+
+  /**
+   * register_link field in *Events_card*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events_card.register_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  register_link: prismic.LinkField;
 }
 
 /**
@@ -1041,6 +1106,7 @@ export type AllDocumentTypes =
   | AccountabilityDocument
   | AccountabilityCardDocument
   | CalendarDocument
+  | EquipmentDocument
   | EventsCardDocument
   | HomeDocument
   | NewsDocument
@@ -1334,6 +1400,8 @@ declare module "@prismicio/client" {
       CalendarDocument,
       CalendarDocumentData,
       CalendarDocumentDataSlicesSlice,
+      EquipmentDocument,
+      EquipmentDocumentData,
       EventsCardDocument,
       EventsCardDocumentData,
       HomeDocument,

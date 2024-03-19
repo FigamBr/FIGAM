@@ -1,7 +1,5 @@
-import CustomImage from '@/components/CustomImage'
 import EventCard from '@/components/EventCard'
 import { createClient } from '@/prismicio';
-import Link from 'next/link'
 import React from 'react'
 
 

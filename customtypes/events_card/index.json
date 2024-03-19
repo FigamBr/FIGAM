@@ -44,6 +44,15 @@
           "label": "event_date",
           "placeholder": ""
         }
+      },
+      "register_link": {
+        "type": "Link",
+        "config": {
+          "label": "register_link",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "select": null
+        }
       }
     }
   }
