@@ -589,6 +589,17 @@ interface EventsCardDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#date
    */
   event_date: prismic.DateField;
+
+  /**
+   * register_link field in *Events_card*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events_card.register_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  register_link: prismic.LinkField;
 }
 
 /**

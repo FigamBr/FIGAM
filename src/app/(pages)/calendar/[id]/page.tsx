@@ -2,7 +2,7 @@ import CircleHome from '@/components/CircleHome'
 import CustomImage from '@/components/CustomImage'
 import { formactDate } from '@/helpers/formactDate'
 import { Divider } from '@nextui-org/react'
-import { JSXMapSerializer, PrismicImage, PrismicRichText } from '@prismicio/react'
+import { JSXMapSerializer, PrismicImage, PrismicLink, PrismicRichText } from '@prismicio/react'
 import React from 'react'
 import { createClient } from '@/prismicio'
 
@@ -34,6 +34,8 @@ const page = async ({ params }: { params: { id: string } }) => {
         }
     }
 
+    console.log(event.data)
+
     return (
         <div className="flex flex-col w-full gap-6">
             <div className="flex flex-col gap-2 ">
@@ -49,7 +51,11 @@ const page = async ({ params }: { params: { id: string } }) => {
                             alt={event.data.event_image.alt as string}
                         />
                     </div>
-
+                    {event.data.register_link.link_type !== 'Any' &&
+                        <PrismicLink field={event.data.register_link} >
+                            <span className="bg-primary text-white p-2 rounded-md">Inscreva-se</span>
+                        </PrismicLink>
+                    }
                 </header>
 
                 <header className="hidden md:flex md:flex-row-reverse w-full h-96 gap-5">
@@ -65,17 +71,22 @@ const page = async ({ params }: { params: { id: string } }) => {
                         <div className="font-bold text-lg lg:text-3xl flex justify-between items-center">
                             <p>{event.data.event_title[0].text}</p>
                         </div>
+                        {event.data.register_link.link_type !== 'Any' &&
+                            <PrismicLink field={event.data.register_link} >
+                                <span className="bg-primary text-white p-2 rounded-md">Inscreva-se</span>
+                            </PrismicLink>
+                        }
                     </div>
                 </header>
 
-            </div>
+            </div >
 
             <Divider />
 
             <main className='flex flex-col gap-2'>
                 <PrismicRichText field={event.data.event_text} components={components} />
             </main>
-        </div>
+        </div >
     )
 }
 
