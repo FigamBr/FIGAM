@@ -578,6 +578,17 @@ interface EquipmentDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   read_more: prismic.LinkField;
+
+  /**
+   * Image field in *Equipment*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: equipment.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
 }
 
 /**

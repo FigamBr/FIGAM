@@ -2,7 +2,7 @@ import React from 'react';
 import Circles from '@/components/Circles';
 import ComponentButton from '@/components/ComponentButton';
 import { createClient } from '@/prismicio';
-import { PrismicLink, PrismicRichText } from '@prismicio/react';
+import { PrismicImage, PrismicLink, PrismicRichText } from '@prismicio/react';
 import { PrismicNextLink } from '@prismicio/next';
 
 interface Props {
@@ -21,24 +21,38 @@ const CoreHome = async ({ data }: Props) => {
 
                 <section className="flex flex-col xl:px-0 gap-5">
                     {events && events.map((event: any) => (
-                        <div className="flex flex-col gap-2 border border-primary p-4 rounded-md" key={event.id}>
-                            <h3 className="text-lg font-normal md:text-2xl">{event.data.title}</h3>
-                            <PrismicRichText field={event.data.text} components={{
-                                paragraph: ({ children }) => (
-                                    <p className="text-xs lg:text-base text-justify font-light">
-                                        {children}
-                                    </p>
-                                ),
-                                heading4: ({ children }) => (
-                                    <h4 className="text-xl font-normal">
-                                        {children}
-                                    </h4>
-                                )
-                            }} />
-                            <PrismicLink field={event.data.read_more} >
-                                <span className="text-secondary text-lg font-semibold">Saiba mais</span>
-                            </PrismicLink>
+
+                        <div className="flex flex-col md:flex-row items-center gap-4 border border-primary p-4 rounded-md" key={event.id}>
+                            <div className="flex flex-col md:w-2/5">
+                                <figure className="relative">
+                                    <PrismicImage
+                                        field={event.data.image}
+                                        alt={event.data.image.alt}
+                                        className="w-full object-cover rounded-md"
+                                    />
+                                </figure>
+                            </div>
+
+                            <div className='flex flex-col md:w-3/5'>
+                                <h3 className="text-lg font-normal md:text-2xl mb-2">{event.data.title}</h3>
+                                <PrismicRichText field={event.data.text} components={{
+                                    paragraph: ({ children }) => (
+                                        <p className="text-xs lg:text-base text-justify font-light">
+                                            {children}
+                                        </p>
+                                    ),
+                                    heading4: ({ children }) => (
+                                        <h4 className="text-xl font-normal mt-2">
+                                            {children}
+                                        </h4>
+                                    )
+                                }} />
+                                <PrismicLink field={event.data.read_more} >
+                                    <span className="text-secondary text-lg font-semibold">Saiba mais</span>
+                                </PrismicLink>
+                            </div>
                         </div>
+
                     ))}
                 </section>
             </div>
