@@ -44,7 +44,7 @@ const page = async () => {
 
       <article className="flex flex-col lg:flex-row gap-5 lg:items-center lg:justify-center">
         <div className={`flex flex-col gap-2 lg:w-6/12`}>
-          <h1 className="text-h1">{about.data.title2[0]?.text}</h1>
+          <h3 className="text-h1">{about.data.title2[0]?.text}</h3>
           <PrismicRichText field={about.data.text2} components={{
             paragraph: ({ children }) => <p className="text-paragraph-base text-justify">{children}</p>
           }} />
@@ -73,7 +73,7 @@ const page = async () => {
         </section>
       </article>
 
-      <Circles center />
+      <h3 className="text-h1 text-center">Galeria de Imagens</h3>
 
       <ScrollOfImage>
         {slices &&
