@@ -3,6 +3,7 @@ import CustomImage from '@/components/CustomImage'
 import CustomImageScroll from '@/components/CustomImageScroll'
 import ScrollOfImage from '@/components/ScrollOfImage'
 import { createClient } from '@/prismicio'
+import { PrismicRichText } from '@prismicio/react'
 import React from 'react'
 
 interface Props {
@@ -40,7 +41,9 @@ const AboutHome = async ({ data }: Props) => {
         </div>
         <div className='flex flex-col gap-4 items-center md:w-7/12 md:items-start '>
           <h2 className=' text-xl font-normal md:text-4xl'>{data.about_title[0].text}</h2>
-          <p className=' text-xs lg:text-base text-justify font-light'>{data.about_text[0].text}</p>
+          <PrismicRichText field={data.about_text} components={{
+            paragraph: ({ children }) => <p className="text-xs lg:text-base text-justify font-light">{children}</p>
+          }} />
         </div>
       </section>
       {/* <div className='flex flex-col items-center'>
