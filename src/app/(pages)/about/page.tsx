@@ -95,11 +95,12 @@ const page = async () => {
        lg:flex-row gap-5 items-center justify-center"
       >
         <article className="flex flex-col lg:w-9/12">
-          <HeaderAndText
-            width="w-12/12"
-            title={about.data.title3[0]?.text}
-            text={about.data.text3[0]?.text}
-          />
+          <div className={`flex flex-col gap-2 lg:w-full`}>
+            <h1 className="text-h1">{about.data.title3[0]?.text}</h1>
+            <PrismicRichText field={about.data.text3} components={{
+              paragraph: ({ children }) => <p className="text-paragraph-base text-justify">{children}</p>
+            }} />
+          </div>
         </article>
 
         <DecorationPhrase
