@@ -1,6 +1,7 @@
 import CircleHome from '@/components/CircleHome'
 import ComponentButton from '@/components/ComponentButton'
 import CustomImage from '@/components/CustomImage'
+import { PrismicRichText } from '@prismicio/react'
 import React from 'react'
 
 interface Props {
@@ -14,8 +15,10 @@ const HeaderHome = ({ data }: Props) => {
         <div className="flex flex-col gap-3 items-center sm:items-start sm:text-start text-center sm:w-6/12 md:w-7/12 lg:justify-around">
           <div className="flex flex-col gap-3">
             <h2 className="text-base font-normal md:text-2xl lg:text-4xl">{data.home_subtitle[0].text}</h2>
-            <p className="text-xs md:text-xl font-light">{data.text_title[0].text}</p>
-            <p className="text-xs md:text-xl font-light">{data.text_title[1].text}</p>
+            <PrismicRichText field={data.text_title} components={{
+              paragraph: ({ children }) => <p className="text-xs md:text-xl font-light">{children}</p>
+            }} />
+
           </div>
           <div className="flex gap-4 sm:flex-col sm:gap-2 items-center sm:justify-start">
             <CircleHome />
