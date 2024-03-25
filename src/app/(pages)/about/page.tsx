@@ -89,7 +89,6 @@ const page = async () => {
       </ScrollOfImage>
 
       <Circles center />
-
       <div
         className="flex w-full flex-col md:min-h-[300px] lg:min-h-[300px]
        lg:flex-row gap-5 items-center justify-center"
