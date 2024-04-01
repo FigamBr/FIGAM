@@ -542,6 +542,8 @@ export type CalendarDocument<Lang extends string = string> =
     Lang
   >;
 
+type EquipmentDocumentDataSlicesSlice = ImageSlideSlice;
+
 /**
  * Content for Equipment documents
  */
@@ -589,6 +591,17 @@ interface EquipmentDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *Equipment*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: equipment.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<EquipmentDocumentDataSlicesSlice>;
 }
 
 /**
@@ -1413,6 +1426,7 @@ declare module "@prismicio/client" {
       CalendarDocumentDataSlicesSlice,
       EquipmentDocument,
       EquipmentDocumentData,
+      EquipmentDocumentDataSlicesSlice,
       EventsCardDocument,
       EventsCardDocumentData,
       HomeDocument,

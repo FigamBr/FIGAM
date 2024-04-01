@@ -3,7 +3,7 @@ import Circles from '@/components/Circles';
 import ComponentButton from '@/components/ComponentButton';
 import { createClient } from '@/prismicio';
 import { PrismicImage, PrismicLink, PrismicRichText } from '@prismicio/react';
-import { PrismicNextLink } from '@prismicio/next';
+import Link from 'next/link';
 
 interface Props {
     data: any;
@@ -12,7 +12,11 @@ interface Props {
 const CoreHome = async ({ data }: Props) => {
     const prismic = createClient();
 
-    const events: any = await prismic.getAllByType("equipment");
+    const equipaments: any = await prismic.getAllByType("equipment", {
+        fetch: ["equipment.image", "equipment.title", "equipment.text", "equipment.read_more"]
+    });
+
+    console.log(equipaments);
 
     return (
         <div className="flex flex-col w-full gap-5 items-center">
@@ -20,22 +24,22 @@ const CoreHome = async ({ data }: Props) => {
                 <h2 className=' text-xl text-center font-normal md:text-4xl'>Equipamentos</h2>
 
                 <section className="flex flex-col xl:px-0 gap-5">
-                    {events && events.map((event: any) => (
+                    {equipaments && equipaments.map((equipament: any) => (
 
-                        <div className="flex flex-col md:flex-row items-center gap-4 border border-primary p-4 rounded-md" key={event.id}>
+                        <div className="flex flex-col md:flex-row items-center gap-4 border border-primary p-4 rounded-md" key={equipament.id}>
                             <div className="flex flex-col md:w-2/5">
                                 <figure className="relative">
                                     <PrismicImage
-                                        field={event.data.image}
-                                        alt={event.data.image.alt}
+                                        field={equipament.data.image}
+                                        alt={equipament.data.image.alt}
                                         className="w-full object-cover rounded-md"
                                     />
                                 </figure>
                             </div>
 
                             <div className='flex flex-col md:w-3/5'>
-                                <h3 className="text-lg font-normal md:text-2xl mb-2">{event.data.title}</h3>
-                                <PrismicRichText field={event.data.text} components={{
+                                <h3 className="text-lg font-normal md:text-2xl mb-2">{equipament.data.title}</h3>
+                                <PrismicRichText field={equipament.data.text} components={{
                                     paragraph: ({ children }) => (
                                         <p className="text-xs lg:text-base text-justify font-light">
                                             {children}
@@ -47,9 +51,9 @@ const CoreHome = async ({ data }: Props) => {
                                         </h4>
                                     )
                                 }} />
-                                <PrismicLink field={event.data.read_more} >
+                                <Link href={"/equipament/" + equipament.uid} >
                                     <span className="text-secondary text-lg font-semibold">Saiba mais</span>
-                                </PrismicLink>
+                                </Link>
                             </div>
                         </div>
 
