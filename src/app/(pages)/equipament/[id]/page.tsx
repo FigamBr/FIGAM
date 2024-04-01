@@ -73,6 +73,7 @@ const page = async ({ params }: { params: { id: string } }) => {
                                     <PrismicNextImage
                                         field={item.image}
                                         alt={item.image.alt}
+                                        key={item.image.id}
                                         width={item.image.dimensions.width / 4}
                                         height={item.image.dimensions.height / 4}
                                         className='rounded-lg'
