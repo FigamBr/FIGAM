@@ -7,7 +7,7 @@ import LastNewsHeader from './components/LastNewsHeader';
 const News = async () => {
 
   const prismic = createClient();
-  // const newsPage: any = await prismic.getByUID("news", "news_page_1");
+  // const newsPage: any = await prismic.getSingle('post')
   const post: any = await prismic.getAllByType("post", {
     pageSize: 10,
     orderings: ["my.post.first_publication_date desc"]
