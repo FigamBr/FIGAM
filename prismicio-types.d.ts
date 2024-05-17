@@ -542,6 +542,104 @@ export type CalendarDocument<Lang extends string = string> =
     Lang
   >;
 
+type ContactDocumentDataSlicesSlice = ContactCardSlice;
+
+/**
+ * Content for Contact documents
+ */
+interface ContactDocumentData {
+  /**
+   * text 1 field in *Contact*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.text_1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text_1: prismic.KeyTextField;
+
+  /**
+   * text 2 field in *Contact*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.text_2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_2: prismic.RichTextField;
+
+  /**
+   * Endereço field in *Contact*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.endereco
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  endereco: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Contact*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ContactDocumentDataSlicesSlice> /**
+   * Meta Description field in *Contact*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: contact.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Contact*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Contact*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: contact.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Contact document from Prismic
+ *
+ * - **API ID**: `contact`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ContactDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ContactDocumentData>,
+    "contact",
+    Lang
+  >;
+
 type EquipmentDocumentDataSlicesSlice = ImageSlideSlice;
 
 /**
@@ -1130,6 +1228,7 @@ export type AllDocumentTypes =
   | AccountabilityDocument
   | AccountabilityCardDocument
   | CalendarDocument
+  | ContactDocument
   | EquipmentDocument
   | EventsCardDocument
   | HomeDocument
@@ -1163,6 +1262,92 @@ type About1SliceVariation = About1SliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type About1Slice = prismic.SharedSlice<"about1", About1SliceVariation>;
+
+/**
+ * Primary content in *ContactCard → Primary*
+ */
+export interface ContactCardSliceDefaultPrimary {
+  /**
+   * Icon field in *ContactCard → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: email
+   * - **API ID Path**: contact_card.primary.icon
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon: prismic.SelectField<"email" | "whats app" | "instagram", "filled">;
+
+  /**
+   * Title field in *ContactCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_card.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Sub Title field in *ContactCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_card.primary.sub_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sub_title: prismic.KeyTextField;
+
+  /**
+   * Link field in *ContactCard → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_card.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Button Text field in *ContactCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_card.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ContactCard Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactCardSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactCardSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ContactCard*
+ */
+type ContactCardSliceVariation = ContactCardSliceDefault;
+
+/**
+ * ContactCard Shared Slice
+ *
+ * - **API ID**: `contact_card`
+ * - **Description**: ContactCard
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactCardSlice = prismic.SharedSlice<
+  "contact_card",
+  ContactCardSliceVariation
+>;
 
 /**
  * Primary content in *Document → Primary*
@@ -1424,6 +1609,9 @@ declare module "@prismicio/client" {
       CalendarDocument,
       CalendarDocumentData,
       CalendarDocumentDataSlicesSlice,
+      ContactDocument,
+      ContactDocumentData,
+      ContactDocumentDataSlicesSlice,
       EquipmentDocument,
       EquipmentDocumentData,
       EquipmentDocumentDataSlicesSlice,
@@ -1444,6 +1632,10 @@ declare module "@prismicio/client" {
       About1Slice,
       About1SliceVariation,
       About1SliceDefault,
+      ContactCardSlice,
+      ContactCardSliceDefaultPrimary,
+      ContactCardSliceVariation,
+      ContactCardSliceDefault,
       DocumentSlice,
       DocumentSliceDefaultPrimary,
       DocumentSliceDefaultItem,
