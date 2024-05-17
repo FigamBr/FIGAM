@@ -22,7 +22,7 @@ const ContactCard = ({ slice }: ContactCardProps): JSX.Element => {
         hover:bg-transparen">
         <h4>{slice.primary.title}</h4>
         <h5>{slice.primary.sub_title}</h5>
-        <PrismicNextLink href={slice.primary.link.url} className="font-bold hover:bg-secondary">
+        <PrismicNextLink field={slice.primary.link} className="font-bold hover:bg-secondary">
           {slice.primary.button_text}
         </PrismicNextLink>
       </div>
