@@ -14,7 +14,9 @@ const AboutHome = async ({ data }: Props) => {
   const prismic = createClient();
   const events: any = await prismic.getAllByType("events_card", {
     pageSize: 10,
-    orderings: ["my.events_card.event_date"]
+    orderings: [
+      { field: "my.events_card.event_date", direction: "desc" },
+    ],
   });
 
   return (

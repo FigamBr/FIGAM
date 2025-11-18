@@ -14,8 +14,6 @@ const page = async () => {
 
   const slices = about.data.slices[0];
 
-  console.log(about.data)
-
   return (
     <div className="flex flex-col w-full gap-6">
       <div className="flex md:min-h-[400x] flex-col md:flex md:flex-row md:items-center">
