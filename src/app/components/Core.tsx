@@ -16,8 +16,6 @@ const CoreHome = async ({ data }: Props) => {
         fetch: ["equipment.image", "equipment.title", "equipment.text", "equipment.read_more"]
     });
 
-    console.log(equipaments);
-
     return (
         <div className="flex flex-col w-full gap-5 items-center">
             <div className="flex flex-col xl:px-0 gap-5">
